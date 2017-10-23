@@ -1,8 +1,8 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AccordionModule, AlertModule } from 'ngx-bootstrap';
 
-import {AppComponent} from "./app.component";
-import {AlertModule} from "ngx-bootstrap";
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -10,9 +10,11 @@ import {AlertModule} from "ngx-bootstrap";
   ],
   imports: [
     AlertModule.forRoot(),
+    AccordionModule.forRoot(),
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

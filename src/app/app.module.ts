@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { OrderAccordionComponent } from './order-accordion/order-accordion.component';
+import { WoodEditComponent } from './wood-edit/wood-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     OrderAccordionComponent,
-    HomeComponent
+    HomeComponent,
+    WoodEditComponent
   ],
   imports: [
     AlertModule.forRoot(),

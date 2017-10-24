@@ -50,3 +50,5 @@ export class WoodsService {
   }
 
 }
+// TODO timestamp wood record so we know when it was last updated
+// TODO when firebase updates the woods list, clear the list first of hardcoded data

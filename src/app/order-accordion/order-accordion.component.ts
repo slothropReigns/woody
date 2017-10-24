@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './order-accordion.component.html',
   styleUrls: [ './order-accordion.component.css' ]
 })
+
 export class OrderAccordionComponent implements OnInit {
   oneAtATime: boolean = true;
 

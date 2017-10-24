@@ -1,63 +1,70 @@
 <div class="container">
-  <div class="row">
     <div class="col-md mt-3">
       <accordion [closeOthers]="oneAtATime">
         <accordion-group heading="Please select:" panelClass="customClass" isOpen="isFirstOpen">
-          <div class="row">
-
-            <div class="card w-25 border-dark">
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Wood type</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Paint Grade</option>
-                    <option>Knotty Alder</option>
-                    <option>Red Oak</option>
-                    <option>4</option>
-                    <option>5</option>
+          <form>
+              <div class="form-group">
+                  <label for="woodType">Material:</label>
+                  <select name="woodType" id="woodType" class="form-control">
+                    <option value="1">1</option>
                   </select>
-                </div>
-              </div>
-            </div>
-            <div class="card w-25 border-dark">
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Wood type</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Paint Grade</option>
-                    <option>Knotty Alder</option>
-                    <option>Red Oak</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label for="woodType">Panel Material Selection</label>
+                  <select name="woodType" id="woodType" class="form-control">
+                    <option value="1">1</option>
                   </select>
-                </div>
               </div>
-            </div>
-            <div class="card w-25 border-dark">
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Wood type</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Paint Grade</option>
-                    <option>Knotty Alder</option>
-                    <option>Red Oak</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
+          </form>
         </accordion-group>
-        <accordion-group heading="Content 1">
-          <p>Content 1</p>
+        <accordion-group heading="Content 1" panelClass="customClass">
+          <h1>more choices here</h1>
         </accordion-group>
-        <accordion-group heading="Content 2">
-          <p>Content 2</p>
+        <accordion-group heading="Content 2" panelClass="customClass">
+          <h1>MORE HERE</h1>
         </accordion-group>
       </accordion>
     </div>
-
-  </div>
 </div>
 
+
+<!--<div class="row">-->
+  <!--<div class="card w-25 border-dark m-3">-->
+    <!--<div class="card-body">-->
+      <!--<div class="form-group">-->
+        <!--<label for="exampleFormControlSelect1">Frame Wood type</label>-->
+        <!--<select class="form-control" id="exampleFormControlSelect1">-->
+          <!--<option>Paint Grade</option>-->
+          <!--<option>Knotty Alder</option>-->
+          <!--<option>Red Oak</option>-->
+          <!--<option>4</option>-->
+          <!--<option>5</option>-->
+        <!--</select>-->
+        <!--<img class="w-100 mt-3 border border-dark rounded" src="http://images.woodmagazine.mdpcdn.com/sites/default/files/styles/scale_1500_1500/public/image/2016/11/30/WD318111.jpg" alt="">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="card w-25 border-dark m-3">-->
+    <!--<div class="card-body">-->
+      <!--<div class="form-group">-->
+        <!--<label for="exampleFormControlSelect1">Panel Wood type</label>-->
+        <!--<select class="form-control" id="exampleFormControlSelect1">-->
+          <!--<option>MDF 3/8"</option>-->
+          <!--<option>Knotty Alder</option>-->
+          <!--<option>Red Oak</option>-->
+          <!--<option>4</option>-->
+          <!--<option>5</option>-->
+        <!--</select>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="card w-25 border-dark m-3">-->
+    <!--<div class="card-body">-->
+      <!--<div class="form-group">-->
+        <!--<label for="exampleFormControlSelect1">Door Type</label>-->
+        <!--<select class="form-control" id="exampleFormControlSelect1">-->
+          <!--<option>Stick and Cope</option>-->
+          <!--<option>Miter</option>-->
+        <!--</select>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

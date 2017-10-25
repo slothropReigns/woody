@@ -10,7 +10,6 @@ import { WoodsService } from '../woods.service';
 })
 
 export class OrderAccordionComponent implements OnInit {
-  oneAtATime: boolean = true;
   woods: Wood[];
   subscription: Subscription;
 
@@ -18,7 +17,7 @@ export class OrderAccordionComponent implements OnInit {
   }
 
   getWoodsUpdate() {
-    this.woodsService.getWoods();
+    this.woods = this.woodsService.getWoods();
   }
 
   ngOnInit() {
@@ -27,6 +26,6 @@ export class OrderAccordionComponent implements OnInit {
         (woods: Wood[]) => {
           this.woods = woods;
         });
+    this.getWoodsUpdate();
   }
-
 }

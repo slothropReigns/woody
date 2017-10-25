@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { OrderAccordionComponent } from './order-accordion/order-accordion.component';
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }) ],
+  imports: [ RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
+  ReactiveFormsModule, FormsModule],
   exports: [ RouterModule ],
   providers: [ WoodsService ]
 })

@@ -39,18 +39,18 @@ export class Wood {
   public shortName: string;
   public description: string;
   public imagePath: string;
-  public copeAndStickPrice: CopeAndStickPrice[];
-  public miterPrice: MiterPrice[];
-  public miter3InchPrice: Miter3InchPrice[];
+  public copeAndStickPrice: CopeAndStickPrice;
+  public miterPrice: MiterPrice;
+  public miter3InchPrice: Miter3InchPrice;
   public slabPrice: number;
 
   constructor(name: string,
               shortName: string,
               description: string,
               imagePath: string,
-              copeAndStickPrice: CopeAndStickPrice[],
-              miterPrice: MiterPrice[],
-              miter3InchPrice: Miter3InchPrice[],
+              copeAndStickPrice: CopeAndStickPrice,
+              miterPrice: MiterPrice,
+              miter3InchPrice: Miter3InchPrice,
               slabPrice: number) {
     this.name = name;
     this.shortName = shortName;

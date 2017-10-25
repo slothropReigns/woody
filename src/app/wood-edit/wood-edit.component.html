@@ -1,75 +1,78 @@
 <div class="container-fluid m-3">
   <form>
+    <select name="woodType" id="woodType" class="form-control w-25" #s (change)="onSelectWood(s.value)">
+      <option *ngFor="let wood of woods; let i = index" value="{{i}}">{{ wood.name }}</option>
+    </select>
     <div class="row">
       <div class="col-md-8 form-group">
         <div class="row">
           <div class="col-md-8 form-group">
-            <label for="name">Wood Type</label>
-            <input type="text" id="name" class="form-control">
+            <label for="name">Wood  Type</label>
+            <input type="text" id="name" class="form-control" [(ngModel)]="selectedWood.name" name="name">
           </div>
           <div class="col-md-4 form-group">
             <label for="shortName">Short Name</label>
-            <input type="text" id="shortName" class="form-control">
+            <input type="text" id="shortName" class="form-control" [(ngModel)]="selectedWood.shortName" name="shortName">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 form-group">
             <label for="description">Description</label>
-            <input type="text" id="description" class="form-control">
+            <input type="text" id="description" class="form-control" [(ngModel)]="selectedWood.description" name="description">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 form-group">
             <label for="imgPath">Image Path</label>
-            <input type="text" id="imgPath" class="form-control">
+            <input type="text" id="imgPath" class="form-control" [(ngModel)]="selectedWood.imagePath" name="imagePath">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4 form-group">
             <label for="csFrameOnly">Cope & Stick Frame Only Price</label>
-            <input type="number" id="csFrameOnly" class="form-control">
+            <input type="number" id="csFrameOnly" class="form-control" [(ngModel)]="selectedWood.copeAndStickPrice.fO" name="csFrameOnly">
           </div>
           <div class="col-md-4 form-group">
             <label for="csFlatPanel">Cope & Stick Flat Panel Price</label>
-            <input type="text" id="csFlatPanel" class="form-control">
+            <input type="text" id="csFlatPanel" class="form-control" [(ngModel)]="selectedWood.copeAndStickPrice.fP" name="csFlatPanel">
           </div>
           <div class="col-md-4 form-group">
             <label for="csRaisedPanel">Cope & Stick Raised Panel Price</label>
-            <input type="text" id="csRaisedPanel" class="form-control">
+            <input type="text" id="csRaisedPanel" class="form-control" [(ngModel)]="selectedWood.copeAndStickPrice.rP" name="csRaisedPanel">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4 form-group">
             <label for="miterFrameOnly">Miter Frame Only Price</label>
-            <input type="number" id="miterFrameOnly" class="form-control">
+            <input type="number" id="miterFrameOnly" class="form-control" [(ngModel)]="selectedWood.miterPrice.fO" name="miterFrameOnly">
           </div>
           <div class="col-md-4 form-group">
             <label for="miterFlatPanel">Miter Flat Panel Price</label>
-            <input type="text" id="miterFlatPanel" class="form-control">
+            <input type="text" id="miterFlatPanel" class="form-control" [(ngModel)]="selectedWood.miterPrice.fP" name="miterFlatPanel">
           </div>
           <div class="col-md-4 form-group">
             <label for="miterRaisedPanel">Miter Raised Panel Price</label>
-            <input type="text" id="miterRaisedPanel" class="form-control">
+            <input type="text" id="miterRaisedPanel" class="form-control" [(ngModel)]="selectedWood.miterPrice.rP" name="miterRaisedPanel">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4 form-group">
             <label for="miter3FrameOnly">Miter 3" Frame Only</label>
-            <input type="number" id="miter3FrameOnly" class="form-control">
+            <input type="number" id="miter3FrameOnly" class="form-control" [(ngModel)]="selectedWood.miter3InchPrice.fO" name="miter3FrameOnly">
           </div>
           <div class="col-md-4 form-group">
             <label for="miter3FlatPanel">Miter 3" Flat Panel Price</label>
-            <input type="text" id="miter3FlatPanel" class="form-control">
+            <input type="text" id="miter3FlatPanel" class="form-control" [(ngModel)]="selectedWood.miter3InchPrice.fP" name="miter3FlatPanel">
           </div>
           <div class="col-md-4 form-group">
             <label for="miter3RaisedPanel">Miter 3" Raised Panel Price</label>
-            <input type="text" id="miter3RaisedPanel" class="form-control">
+            <input type="text" id="miter3RaisedPanel" class="form-control" [(ngModel)]="selectedWood.miter3InchPrice.rP" name="miter3RaisedPanel">
           </div>
         </div>
         <div class="col-md-4 form-group">
           <div class="row">
             <label for="solidSlab">Solid Slab Price</label>
-            <input type="text" id="solidSlab" class="form-control">
+            <input type="text" id="solidSlab" class="form-control" [(ngModel)]="selectedWood.slabPrice" name="slabPrice">
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccordionModule, AlertModule } from 'ngx-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,8 @@ import { WoodEditComponent } from './wood-edit/wood-edit.component';
     AccordionModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ],

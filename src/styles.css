@@ -14,3 +14,8 @@
 body {
   background-color: #c6c6c6;
 }
+
+label {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}

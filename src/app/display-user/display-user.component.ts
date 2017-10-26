@@ -1,24 +1,25 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthService } from 'app/shared/auth.service';
-import { UserInfo } from 'app/shared/user-info';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../shared/auth.service';
+import { UserInfo } from '../shared/user-info';
 
 @Component({
-    selector: 'app-display-user',
-    templateUrl: './display-user.component.html',
-    styleUrls: ['./display-user.component.css']
+  selector: 'app-display-user',
+  templateUrl: './display-user.component.html',
+  styleUrls: [ './display-user.component.css' ]
 })
 export class DisplayUserComponent {
-    @Output() onLoggedOut = new EventEmitter();
+  @Output() onLoggedOut = new EventEmitter();
 
 
-    constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
-    currentUser(): Observable<UserInfo> {
-        return this.authService.currentUser();
-    }
+  currentUser(): Observable<UserInfo> {
+    return this.authService.currentUser();
+  }
 
-    logout() {
-        this.authService.logout().subscribe(() => this.onLoggedOut.emit("success"));
-    }
+  logout() {
+    this.authService.logout().subscribe(() => this.onLoggedOut.emit('success'));
+  }
 }

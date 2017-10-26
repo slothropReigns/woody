@@ -1,52 +1,25 @@
 <div class="container">
   <div class="col-md mt-3">
-    <accordion [closeOthers]="oneAtATime">
-      <accordion-group heading="Please select:" panelClass="customClass" isOpen="isFirstOpen">
-        <form>
-          <div class="form-group">
-            <label for="woodType">Material:</label>
-            <select name="woodType" id="woodType" class="form-control">
-              <option value="1">1</option>
-            </select>
-            <label for="woodType">Panel Material Selection</label>
-            <select name="woodType" id="woodType" class="form-control">
-              <option value="1">1</option>
-            </select>
-          </div>
-        </form>
-        <button (click)="getWoodsUpdate()">GET WOOD</button>
-        <div *ngFor="let wood of woods; let i = index">
-          <ul class="list-group">
-            <li class="list-group-item">Wood Name: {{ wood.name }}</li>
-            <li>ShortName: {{ wood.shortName }}</li>
-            <li>Description: {{ wood.description }}</li>
-            <li>Frame-Only - C/S: {{ wood.copeAndStickPrice[0].fO }} || Flat-Panel - C/S: {{ wood.copeAndStickPrice[0].fP }} || Raised-Panel - C/S: {{ wood.copeAndStickPrice[0].rP }}</li>
-            <li>Frame-Only - Miter: {{ wood.miterPrice[0].fO }}</li>
-            <li>Flat-Panel - Miter: {{ wood.miterPrice[0].fP }}</li>
-            <li>Raised-Panel - Miter: {{ wood.miterPrice[0].rP }}</li>
-            <li>Frame-Only - Miter 3": {{ wood.miter3InchPrice[0].fO }}</li>
-            <li>Flat-Panel - Miter 3": {{ wood.miter3InchPrice[0].fP }}</li>
-            <li>Raised-Panel - Miter 3": {{ wood.miter3InchPrice[0].rP }}</li>
-            <li>Solid-Slab price: {{ wood.slabPrice }}</li>
-          </ul>
-
-
-        </div>
-      </accordion-group>
-      <accordion-group heading="Content 1" panelClass="customClass">
-        <h1>more choices here</h1>
-      </accordion-group>
-      <accordion-group heading="Content 2" panelClass="customClass">
-        <h1>MORE HERE</h1>
-      </accordion-group>
-    </accordion>
+    <button (click)="getWoodsUpdate()">GET WOOD</button>
+    <div *ngFor="let wood of woods">
+      <ul class="list-group">
+        <li class="list-group-item">Wood Name: {{ wood.name }}</li>
+        <li>ShortName: {{ wood.shortName }}</li>
+        <li>Description: {{ wood.description }}</li>
+        <li>Frame-Only - C/S: {{ wood.copeAndStickPrice.fO }} || Flat-Panel - C/S: {{ wood.copeAndStickPrice.fP }} ||
+          Raised-Panel - C/S: {{ wood.copeAndStickPrice.rP }}
+        </li>
+        <li>Frame-Only - Miter: {{ wood.miterPrice.fO }}</li>
+        <li>Flat-Panel - Miter: {{ wood.miterPrice.fP }}</li>
+        <li>Raised-Panel - Miter: {{ wood.miterPrice.rP }}</li>
+        <li>Frame-Only - Miter 3": {{ wood.miter3InchPrice.fO }}</li>
+        <li>Flat-Panel - Miter 3": {{ wood.miter3InchPrice.fP }}</li>
+        <li>Raised-Panel - Miter 3": {{ wood.miter3InchPrice.rP }}</li>
+        <li>Solid-Slab price: {{ wood.slabPrice }}</li>
+      </ul>
+    </div>
   </div>
 </div>
-
-<div>
-  <p></p>
-</div>
-
 
 <!--<div class="row">-->
 <!--<div class="card w-25 border-dark m-3">-->

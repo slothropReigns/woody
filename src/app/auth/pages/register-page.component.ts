@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register-page',

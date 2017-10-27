@@ -21,7 +21,7 @@ export class AuthService {
 
   constructor(private angularFireAuth: AngularFireAuth) {
     this.angularFireAuth.authState.subscribe(user => {
-      // console.log("user: ", JSON.stringify(user));
+      console.log('user: ', JSON.stringify(user));
       this.user = user;
       let userInfo = new UserInfo();
       if (user != null) {
@@ -78,7 +78,7 @@ export class AuthService {
   createUser(email: string, password: string, displayName: string): Observable<string> {
     let result = new Subject<string>();
     this.angularFireAuth.authState.subscribe(user => {
-      // console.log("Update: ", user);
+      console.log('Update: ', user);
       if (user != null) {
         user.updateProfile({ displayName: displayName, photoURL: null });
       }
@@ -128,8 +128,7 @@ export class AuthService {
         .then(auth => result.next('success'))
         .catch(err => result.error(err));
       return result.asObservable();
-    }
-    else if (provider === 'twitter') {
+    } else if (provider === 'twitter') {
       this.angularFireAuth
         .auth
         .signInWithPopup(new firebase.auth.TwitterAuthProvider())

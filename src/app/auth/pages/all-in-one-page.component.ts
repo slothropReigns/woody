@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-all-in-one-page',

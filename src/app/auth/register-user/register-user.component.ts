@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register-user',
@@ -35,15 +35,20 @@ export class RegisterUserComponent {
   }
 
   onSubmit() {
+    console.log('clicked');
     if (this.form.valid) {
+      console.log('valid1');
       this.authService.createUser(this.email.value, this.password.value, this.name.value)
         .subscribe(
           () => {
+            console.log('submitted success');
             this.onSuccess.emit('success');
             this.form.reset();
           },
           err => this.onError.emit(err)
         );
+      console.log('err')
+      ;
     }
   }
 

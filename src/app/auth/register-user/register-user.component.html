@@ -1,8 +1,12 @@
 <h3>Register</h3>
-<form [formGroup]="form" role="form" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="form" role="form" (ngSubmit)="onSubmit()">
     <div class="form-group" [class.has-error]="name.invalid && name.touched">
         <label for="name" class="control-label">Name</label>
-        <input [formControl]="name" required type="text" class="form-control" id="name" name="name">
+      <label for="name" aria-haspopup="true" role="tooltip" [class.invalid]="name.touched"
+             class="tooltip tooltip-validation tooltip-sm">
+        <input [formControl]="name" required type="text" class="form-control" id="name" name="name"
+               [style.warning]="name.valid">
+        <span class="tooltip-content">tooltip</span></label>
         <div class="help-block">
             <ul class="list-unstyled">
                 <li *ngIf="name.valid || name.pristine">Enter your name</li>

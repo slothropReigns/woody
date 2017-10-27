@@ -14,20 +14,20 @@ import { firebaseConfig } from '../environments/firebaseConfig';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DisplayUserComponent } from './display-user/display-user.component';
+import { AuthService } from './auth/auth.service';
+import { DisplayUserComponent } from './auth/display-user/display-user.component';
+import { LoggedInGuard } from './auth/logged-in-guard';
+import { LoginUserComponent } from './auth/login-user/login-user.component';
+import { AllInOnePageComponent } from './auth/pages/all-in-one-page.component';
+import { DashboardPageComponent } from './auth/pages/dashboard-page.component';
+import { HomePageComponent } from './auth/pages/home-page.component';
+import { LoginPageComponent } from './auth/pages/login-page.component';
+import { RegisterPageComponent } from './auth/pages/register-page.component';
+import { RegisterUserComponent } from './auth/register-user/register-user.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { LoginUserComponent } from './login-user/login-user.component';
 import { OrderAccordionComponent } from './order-accordion/order-accordion.component';
-import { AllInOnePageComponent } from './pages/all-in-one-page.component';
-import { DashboardPageComponent } from './pages/dashboard-page.component';
-import { HomePageComponent } from './pages/home-page.component';
-import { LoginPageComponent } from './pages/login-page.component';
-import { RegisterPageComponent } from './pages/register-page.component';
-import { RegisterUserComponent } from './register-user/register-user.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { AuthService } from './shared/auth.service';
-import { LoggedInGuard } from './shared/logged-in-guard';
 import { WoodEditComponent } from './wood-edit/wood-edit.component';
 
 // import 'clarity-icons/shapes/all-shapes'; if using from all libraries

@@ -1,3 +1,20 @@
+<!--    <a class="navbar-brand" [routerLink]="['']">woodFire</a>
+  </div>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Home</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['dashboard']" *ngIf="(isLoggedIn|async)">Dashboard</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
+        [routerLink]="['all-in-one']" *ngIf="!(isLoggedIn|async)">All In One</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="(isLoggedIn|async)" class="navbar-text">{{(currentUser()|async).email}}</li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!(isLoggedIn|async)"><a
+        [routerLink]="['login']">Login</a></li>
+      <li *ngIf="(isLoggedIn|async)"><a (click)="logout()" href="#">Logout</a></li>
+    </ul>
+  </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;
+</div>-->
+
 <div class="main-container">
   <header class="header header-6">
     <div class="branding">
@@ -7,10 +24,11 @@
       </a>
     </div>
     <div class="header-nav">
-      <a routerLink="/order" class="nav-link nav-text">Order
-      </a>
-      <a routerLink="/edit/wood" class="active nav-link nav-text">Wood Edit (temp)
-      </a>
+      <a routerLink="/order" class="nav-link nav-text">Order</a>
+      <a routerLink="/edit/wood" class="nav-link nav-text">Wood Edit (temp)</a>
+      <a routerLink="/all-in-one" class="nav-link nav-text">AIO</a>
+      <a routerLink="/dashboard" class="nav-link nav-text">Dash</a>
+      <a routerLink="/edit/wood" class="nav-link nav-text">Wood Edit (temp)</a>
     </div>
     <form class="search">
       <label for="search_input">
@@ -18,6 +36,8 @@
       </label>
     </form>
     <div class="header-actions">
+      <a *ngIf="(isLoggedIn|async)" class="nav-link nav-text">{{(currentUser()|async).email}}</a>
+      <a routerLink="/login" *ngIf="!(isLoggedIn|async)" class="nav-link nav-text">Login</a>
       <clr-dropdown>
         <button class="nav-icon" clrDropdownTrigger>
           <clr-icon shape="user"></clr-icon>
@@ -67,8 +87,6 @@
     </nav>
   </div>
 </div>
-
-
 
 
 <!--<nav class="navbar navbar-expand-md navbar-dark bg-dark">

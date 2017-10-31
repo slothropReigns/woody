@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { ClarityModule } from 'clarity-angular';
 
 import 'clarity-icons';
@@ -59,7 +60,8 @@ import { WoodEditComponent } from './wood-edit/wood-edit.component';
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig, 'woodFire'),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [AuthService, LoggedInGuard],
   bootstrap: [ AppComponent ],

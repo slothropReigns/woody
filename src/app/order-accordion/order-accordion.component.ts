@@ -16,16 +16,21 @@ export class OrderAccordionComponent implements OnInit {
   constructor(private woodsService: WoodsService) {
   }
 
-  getWoodsUpdate() {
-    this.woods = this.woodsService.getWoods();
-  }
-
   ngOnInit() {
-    this.subscription = this.woodsService.woodsChanged
+    /*this.subscription = this.woodsService.woodsChanged
       .subscribe(
         (woods: Wood[]) => {
           this.woods = woods;
-        });
+        });*/
     this.getWoodsUpdate();
+  }
+
+  getWoodsUpdate() {
+    this.woodsService.getWoods().subscribe(
+      woods => {
+        console.log(woods);
+        this.woods = woods;
+      }
+    );
   }
 }

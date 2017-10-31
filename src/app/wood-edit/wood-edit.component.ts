@@ -15,21 +15,29 @@ export class WoodEditComponent implements OnInit {
   subscription: Subscription;
   selectedWood: Wood;
   placeholder: string;
+  addingNewWood: boolean;
+  addedAlert: boolean;
+  updatedAlert: boolean;
 
   constructor(private woodsService: WoodsService) {
   }
 
   ngOnInit() {
-    this.subscription = this.woodsService.woodsChanged
-      .subscribe(
-        (woods: Wood[]) => {
-          this.woods = woods;
-        });
-    this.woods = this.woodsService.getWoods();
-    // this.woodEditForm = new FormGroup({
-    //   'name': new FormControl()
-    // });
-    this.selectedWood = this.woods[0];
+    this.addedAlert = false;
+    this.getWoods();
+  }
+
+  getWoods() {
+    console.log('getwoods called');
+    this.woodsService.getWoods().subscribe(
+      woods => {
+        console.log(woods);
+        this.woods = woods;
+        if (!this.selectedWood) {
+          this.selectedWood = woods[ 0 ];
+        }
+      }
+    );
   }
 
   onSubmitWoodForm() {
@@ -37,8 +45,48 @@ export class WoodEditComponent implements OnInit {
   }
 
   onSelectWood(value: number) {
-    this.selectedWood = this.woodsService.getWood(value);
     console.log(this.selectedWood.name);
+    this.selectedWood = this.woods[ value ];
+  }
 
+  onAddWood() {
+    this.woodsService.addNewWood(this.selectedWood);
+    console.log('added (woodEditComponent)');
+    this.addingNewWood = false;
+    this.addedAlert = true;
+  }
+
+  onUpdateWood(wood: Wood) {
+    this.woodsService.updateWood(wood);
+    this.updatedAlert = true;
+  }
+
+  onDeleteWood(id: string) {
+
+  }
+
+  onNewWood() {
+    this.selectedWood = {
+      id: '',
+      name: '',
+      shortName: '',
+      description: '',
+      imagePath: '',
+      copeAndStickPriceFo: null, copeAndStickPriceFp: null, copeAndStickPriceRp: null,
+      miterPriceFo: null, miterPriceFp: null, miterPriceRp: null,
+      miter3InchPriceFo: null, miter3InchPriceFp: null, miter3InchPriceRp: null,
+      slabPrice: null,
+    };
+    this.addingNewWood = true;
+  }
+
+  onCancelAddWood() {
+    this.selectedWood = this.woods[ 0 ];
+    this.addingNewWood = false;
+  }
+
+  onCloseAlert() {
+    this.addedAlert = false;
+    this.updatedAlert = false;
   }
 }

@@ -51,12 +51,12 @@
       </div>
       <div class="col-md-4 form-group">
         <label for="csFlatPanel">Cope & Stick Flat Panel Price</label>
-        <input type="text" id="csFlatPanel" class="form-control form-control-sm"
+        <input type="number" id="csFlatPanel" class="form-control form-control-sm"
                [(ngModel)]="selectedWood.copeAndStickPriceFp" name="csFlatPanel">
       </div>
       <div class="col-md-4 form-group">
         <label for="csRaisedPanel">Cope & Stick Raised Panel Price</label>
-        <input type="text" id="csRaisedPanel" class="form-control form-control-sm"
+        <input type="number" id="csRaisedPanel" class="form-control form-control-sm"
                [(ngModel)]="selectedWood.copeAndStickPriceRp" name="csRaisedPanel">
       </div>
     </div>
@@ -68,12 +68,12 @@
       </div>
       <div class="col-md-4 form-group">
         <label for="miterFlatPanel">Miter Flat Panel Price</label>
-        <input type="text" id="miterFlatPanel" class="form-control form-control-sm"
+        <input type="number" id="miterFlatPanel" class="form-control form-control-sm"
                [(ngModel)]="selectedWood.miterPriceFp" name="miterFlatPanel">
       </div>
       <div class="col-md-4 form-group">
         <label for="miterRaisedPanel">Miter Raised Panel Price</label>
-        <input type="text" id="miterRaisedPanel" class="form-control form-control-sm"
+        <input type="number" id="miterRaisedPanel" class="form-control form-control-sm"
                [(ngModel)]="selectedWood.miterPriceRp" name="miterRaisedPanel">
       </div>
     </div>
@@ -85,19 +85,19 @@
       </div>
       <div class="col-md-4 form-group">
         <label for="miter3FlatPanel">Miter 3" Flat Panel Price</label>
-        <input type="text" id="miter3FlatPanel" class="form-control form-control-sm"
+        <input type="number" id="miter3FlatPanel" class="form-control form-control-sm"
                [(ngModel)]="selectedWood.miter3InchPriceFp" name="miter3FlatPanel">
       </div>
       <div class="col-md-4 form-group">
         <label for="miter3RaisedPanel">Miter 3" Raised Panel Price</label>
-        <input type="text" id="miter3RaisedPanel" class="form-control form-control-sm"
+        <input type="number" id="miter3RaisedPanel" class="form-control form-control-sm"
                [(ngModel)]="selectedWood.miter3InchPriceRp" name="miter3RaisedPanel">
       </div>
     </div>
     <div class="col-md-4 form-group">
       <div class="row">
         <label for="solidSlab">Solid Slab Price</label>
-        <input type="text" id="solidSlab" class="form-control form-control-sm" [(ngModel)]="selectedWood.slabPrice"
+        <input type="number" id="solidSlab" class="form-control form-control-sm" [(ngModel)]="selectedWood.slabPrice"
                name="slabPrice">
       </div>
     </div>
@@ -111,6 +111,35 @@
   </div>
   <div class="container-fluid m-3 col-md-10">
   </div>
+
+  <clr-datagrid>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Cope & Stick</clr-dg-column>
+    <clr-dg-column>Miter</clr-dg-column>
+    <clr-dg-column>Miter 3"</clr-dg-column>
+    <clr-dg-column>Slab</clr-dg-column>
+
+    <clr-dg-row *ngFor="let wood of woods">
+      <clr-dg-cell>{{ wood.name }}</clr-dg-cell>
+      <clr-dg-cell>
+        Frame Only: ${{ wood.copeAndStickPriceFo }}<br>
+        Flat Panel: ${{ wood.copeAndStickPriceFp }}<br>
+        Raised Panel: ${{ wood.copeAndStickPriceRp }}
+      </clr-dg-cell>
+      <clr-dg-cell>
+        Frame Only: ${{ wood.miterPriceFo }}<br>
+        Flat Panel: ${{ wood.miterPriceFp }}<br>
+        Raised Panel: ${{ wood.miterPriceRp }}
+      </clr-dg-cell>
+      <clr-dg-cell>
+        Frame Only: ${{ wood.miter3InchPriceFo }}<br>
+        Flat Panel: ${{ wood.miter3InchPriceFp }}<br>
+        Raised Panel: ${{ wood.miter3InchPriceRp }}
+      </clr-dg-cell>
+      <clr-dg-cell>{{ wood.slabPrice }}</clr-dg-cell>
+    </clr-dg-row>
+  </clr-datagrid>
+
 </div>
 
 

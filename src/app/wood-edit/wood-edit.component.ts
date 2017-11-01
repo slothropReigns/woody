@@ -27,6 +27,7 @@ export class WoodEditComponent implements OnInit {
     this.getWoods();
   }
 
+// TODO move sub to oninit
   getWoods() {
     console.log('getwoods called');
     this.woodsService.getWoods().subscribe(

@@ -26,6 +26,7 @@ import { LoginPageComponent } from './auth/pages/login-page.component';
 import { RegisterPageComponent } from './auth/pages/register-page.component';
 import { RegisterUserComponent } from './auth/register-user/register-user.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { GroupOptionsComponent } from './group-options/group-options.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { OrderAccordionComponent } from './order-accordion/order-accordion.component';
@@ -49,7 +50,8 @@ import { WoodEditComponent } from './wood-edit/wood-edit.component';
     RegisterPageComponent,
     AllInOnePageComponent,
     LoginPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    GroupOptionsComponent
   ],
   imports: [
     BrowserModule,

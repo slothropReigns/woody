@@ -7,5 +7,5 @@ export interface SelectionItem { // representing individual menu / dropdown choi
   imagePath?: string;
   note?: string;
   price?: Price;
-  config: SelectionConfiguration;
+  config?: SelectionConfiguration;
 }

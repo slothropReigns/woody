@@ -1,5 +1,5 @@
 # Woody
 
-A simple door app.
+A simple door app
 
 ### PCD rocks!

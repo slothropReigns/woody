@@ -77,5 +77,4 @@ export class OptionsService {
             { name: 'Left / Right (As Pair)', shortName: 'PAIR' },
             { name: 'Top and Bottom', shortName: 'DBL' } ];
     }
-
 }

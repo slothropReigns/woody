@@ -1,0 +1,30 @@
+<h1>Simple ag-Grid Angular Example</h1>
+<div [ngClass]="setTheme">
+
+    <ag-grid-angular style="width: 1200px; height: 400px"
+                     class=""
+                     [rowData]="rowData"
+                     [columnDefs]="columnDefs"
+                     [gridOptions]="gridOptions"
+                     (gridReady)="onGridReady($event)"
+                     (columnGroupOpened)="toFit()"
+                     editType="fullRow"
+    >
+    </ag-grid-angular>
+</div>
+<div>
+    <button (click)="autoSize()">Auto-Size</button>
+    <button (click)="toFit()">Auto-FIT</button>
+    <br>
+    <button (click)="setTheme = 'ag-fresh'">Fresh Style</button>
+    <button (click)="setTheme = 'ag-blue'">Blue Style</button>
+    <button (click)="setTheme = 'ag-dark'">Dark Style</button>
+    <button (click)="setTheme = 'ag-material'">(old)Flat Style</button>
+    <button (click)="setTheme = 'ag-theme-material'">(NEW)Flat Style</button>
+    <button (click)="setTheme = 'ag-bootstrap'">Bootstrap Style</button>
+    <br>
+    <button (click)="resetHeight()">RESET ROW HEIGHT</button>
+    <br>
+    <p *ngFor="let num of testNumber">{{ num | toFrac }}</p>
+    <p *ngFor="let frac of testFrac">{{ frac | toDeci }}</p>
+</div>

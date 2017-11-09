@@ -31,42 +31,54 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { OrderAccordionComponent } from './order-accordion/order-accordion.component';
 import { WoodEditComponent } from './wood-edit/wood-edit.component';
+import { ToFracPipe } from './shared/to-frac.pipe';
+import { ToDeciPipe } from './shared/to-deci.pipe';
+import { DoorDetailsComponent } from './door-details/door-details.component';
+import { CellRenderComponent } from './door-details/cell-render/cell-render.component';
+import { AgGridModule } from 'ag-grid-angular/main';
 
 // import 'clarity-icons/shapes/all-shapes'; if using from all libraries
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    OrderAccordionComponent,
-    HomeComponent,
-    WoodEditComponent,
-    DisplayUserComponent,
-    LoginUserComponent,
-    RegisterUserComponent,
-    ResetPasswordComponent,
-    HomePageComponent,
-    RegisterPageComponent,
-    AllInOnePageComponent,
-    LoginPageComponent,
-    DashboardPageComponent,
-    GroupOptionsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    ClarityModule.forRoot(),
-    HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig, 'woodFire'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFirestoreModule
-  ],
-  providers: [AuthService, LoggedInGuard],
-  bootstrap: [ AppComponent ],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        OrderAccordionComponent,
+        HomeComponent,
+        WoodEditComponent,
+        DisplayUserComponent,
+        LoginUserComponent,
+        RegisterUserComponent,
+        ResetPasswordComponent,
+        HomePageComponent,
+        RegisterPageComponent,
+        AllInOnePageComponent,
+        LoginPageComponent,
+        DashboardPageComponent,
+        GroupOptionsComponent,
+        ToFracPipe,
+        ToDeciPipe,
+        DoorDetailsComponent,
+        CellRenderComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        ClarityModule.forRoot(),
+        HttpModule,
+        AngularFireModule.initializeApp(firebaseConfig, 'woodFire'),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        AgGridModule.withComponents(
+            [CellRenderComponent]
+        )
+    ],
+    providers: [ AuthService, LoggedInGuard ],
+    bootstrap: [ AppComponent ],
 })
 export class AppModule {
 }

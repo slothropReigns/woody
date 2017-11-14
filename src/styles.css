@@ -10,4 +10,6 @@
 .ag-theme-material .ag-header-group-cell {
     line-height: 30px;
 }
-
+.content-area {
+    background: #eaeaea;
+}

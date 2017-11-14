@@ -1,28 +1,25 @@
-<app-group-options></app-group-options>
-<app-door-details></app-door-details>
+<clr-tabs>
+    <clr-tab>
+        <button clrTabLink id="link1">Order Options</button>
+        <clr-tab-content id="orderOptions" *clrIfActive>
+            <app-group-options></app-group-options>
+        </clr-tab-content>
+    </clr-tab>
+    <clr-tab>
+        <button clrTabLink>Doors</button>
+        <clr-tab-content *clrIfActive="true">
+            <app-door-details></app-door-details>
+        </clr-tab-content>
+    </clr-tab>
+    <clr-tab>
+        <button clrTabLink>5-Piece Drawer Fronts</button>
+    </clr-tab>
+    <clr-tab>
+        <button clrTabLink>Solid Slabs</button>
+    </clr-tab>
+</clr-tabs>
 
-<div class="container">
-  <div class="col-md mt-3">
-    <button (click)="getWoodsUpdate()">GET WOOD</button>
-    <div *ngFor="let wood of woods">
-      <ul class="list-group">
-        <li class="list-group-item">Wood Name: {{ wood.name }}</li>
-        <li>ShortName: {{ wood.shortName }}</li>
-        <li>Description: {{ wood.description }}</li>
-        <li>Frame-Only - C/S: {{ wood.copeAndStickPriceFo }} || Flat-Panel - C/S: {{ wood.copeAndStickPriceFp }} ||
-          Raised-Panel - C/S: {{ wood.copeAndStickPriceRp }}
-        </li>
-        <li>Frame-Only - Miter: {{ wood.miterPriceFo }}</li>
-        <li>Flat-Panel - Miter: {{ wood.miterPriceFp }}</li>
-        <li>Raised-Panel - Miter: {{ wood.miterPriceRp }}</li>
-        <li>Frame-Only - Miter 3": {{ wood.miter3InchPriceFo }}</li>
-        <li>Flat-Panel - Miter 3": {{ wood.miter3InchPriceFp }}</li>
-        <li>Raised-Panel - Miter 3": {{ wood.miter3InchPriceRp }}</li>
-        <li>Solid-Slab price: {{ wood.slabPrice }}</li>
-      </ul>
-    </div>
-  </div>
-</div>
+
 
 <!--<div class="row">-->
 <!--<div class="card w-25 border-dark m-3">-->

@@ -20,6 +20,10 @@
       "prefix": "app",
       "styles": [
         "../node_modules/ag-grid/dist/styles/ag-theme-material.css",
+        "../node_modules/ag-grid/dist/styles/theme-blue.css",
+        "../node_modules/ag-grid/dist/styles/theme-bootstrap.css",
+        "../node_modules/ag-grid/dist/styles/theme-dark.css",
+        "../node_modules/ag-grid/dist/styles/theme-fresh.css",
         "../node_modules/ag-grid/dist/styles/ag-grid.css",
         "../node_modules/clarity-icons/clarity-icons.min.css",
         "../node_modules/clarity-ui/clarity-ui.min.css",

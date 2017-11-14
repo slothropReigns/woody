@@ -1,33 +1,125 @@
 <div class="form-group">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    Panel Profile
+                </div>
+                <div class="card-block">
+                    <select name="panelProfile" id="panelProfile" class="form-control form-control-sm">
+                        <option *ngFor="let profile of panelProfile.opt; let i = index" value="{{ i }}">
+                            {{ profile.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    Outside Edge
+                </div>
+                <div class="card-block">
+                    <select name="outsideEdge" id="outsideEdge" class="form-control form-control-sm">
+                        <option *ngFor="let edge of outsideEdge.opt" value="{{ i }}">
+                            {{ edge.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    Inside Profile
+                </div>
+                <div class="card-block">
+                    <select name="insideProfile" id="insideProfile" class="form-control form-control-sm">
+                        <option *ngFor="let profile of insideProfile.opt" value="{{ i }}">
+                            {{ profile.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
 
-    <label for="panelProfile">Panel Profile: </label>
-    <select name="panelProfile" id="panelProfile" class="form-control form-control-sm">
-        <option *ngFor="let profile of panelProfile.opt; let i = index" value="{{ i }}">{{ profile.name }}</option>
-    </select>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    Door Style
+                </div>
+                <div class="card-block">
+                    <select name="doorStyle" id="doorStyle" class="form-control form-control-sm">
+                        <option *ngFor="let style of doorStyle.opt" value="{{ i }}">
+                            {{ style.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    Arch Layout
+                </div>
+                <div class="card-block">
+                    <select name="archLayout" id="archLayout" class="form-control form-control-sm">
+                        <option *ngFor="let layout of archLayout.opt" value="{{ i }}">
+                            {{ layout.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    Multi-Panel Layout
+                </div>
+                <div class="card-block">
+                    <select name="multiPanel" id="multiPanel" class="form-control form-control-sm">
+                        <option *ngFor="let layout of multiPanel.opt" value="{{ i }}">
+                            {{ layout.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
 
-    <label for="outsideEdge">Outside Edge:</label>
-    <select name="outsideEdge" id="outsideEdge" class="form-control form-control-sm">
-        <option *ngFor="let edge of outsideEdge.opt" value="{{ i }}">{{ edge.name }}</option>
-    </select>
-
-    <label for="insideProfile">Inside Profile</label>
-    <select name="insideProfile" id="insideProfile" class="form-control form-control-sm">
-        <option *ngFor="let profile of insideProfile.opt" value="{{ i }}">{{ profile.name }}</option>
-    </select>
-
-    <label for="doorStyle">Door Style</label>
-    <select name="doorStyle" id="doorStyle" class="form-control form-control-sm">
-        <option *ngFor="let style of doorStyle.opt" value="{{ i }}">{{ style.name }}</option>
-    </select>
-
-    <label for="archLayout">Arch Layout</label>
-    <select name="archLayout" id="archLayout" class="form-control form-control-sm">
-        <option *ngFor="let layout of archLayout.opt" value="{{ i }}">{{ layout.name }}</option>
-    </select>
-
-    <label for="multiPanel">Multi-Panel</label>
-    <select name="multiPanel" id="multiPanel" class="form-control form-control-sm">
-        <option *ngFor="let layout of multiPanel.opt" value="{{ i }}">{{ layout.name }}</option>
-    </select>
-
+    </div>
 </div>
+
+<!--<div class="card-block">-->
+<!--<div class="card-title">-->
+<!--Block-->
+<!--</div>-->
+<!--<div class="card-text">-->
+<!--...text...-->
+<!--</div>-->
+<!--</div>-->

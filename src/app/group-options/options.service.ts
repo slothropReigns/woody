@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Option } from './optionsInterfaces/options';
+import { Selection } from './optionsInterfaces/options';
 
 @Injectable()
 export class OptionsService {
-    outsideEdge: Option;
-    insideProfile: Option;
-    panelProfile: Option;
-    doorStyle: Option;
-    archLayout: Option;
-    multiPanel: Option;
+    panelProfile: Selection = new Selection();
+    outsideEdge: Selection = new Selection();
+    insideProfile: Selection = new Selection();
+    doorStyle: Selection = new Selection();
+    archLayout: Selection = new Selection();
+    multiPanel: Selection = new Selection();
 
     constructor() {
         // .config = {...} these bits show whether this option is applicable / should be seen

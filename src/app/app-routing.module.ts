@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { OrderAccordionComponent } from './order-accordion/order-accordion.component';
 import { WoodEditComponent } from './wood-edit/wood-edit.component';
 import { WoodsService } from './woods.service';
-import { DoorDetailsComponent } from './door-details/door-details.component';
+import { OptionsService } from './group-options/options.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   {path: 'all-in-one', component: AllInOnePageComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
   {path: 'login', component: LoginPageComponent},
-  {path: 'dashboard', component: DoorDetailsComponent, canActivate: [LoggedInGuard]},
+  {path: 'dashboard', component: OrderAccordionComponent, canActivate: [LoggedInGuard]},
   { path: 'badhome', component: HomePageComponent }
 
 ];
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   imports: [ RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
     ReactiveFormsModule, FormsModule ],
   exports: [ RouterModule ],
-  providers: [ WoodsService ]
+  providers: [ WoodsService, OptionsService ]
 })
 
 export class AppRoutingModule {

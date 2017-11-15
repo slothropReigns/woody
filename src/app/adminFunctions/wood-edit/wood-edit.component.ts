@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { Wood } from '../shared/wood.model';
-import { WoodsService } from '../woods.service';
+import { Wood } from '../../shared/wood.model';
+import { WoodsService } from '../../shared/woods.service';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class WoodEditComponent implements OnInit {
     this.getWoods();
   }
 
-// TODO move sub to oninit
+// TODO move sub to oninit?
   getWoods() {
     console.log('getwoods called');
     this.woodsService.getWoods().subscribe(
@@ -67,7 +67,8 @@ export class WoodEditComponent implements OnInit {
   }
 
   onNewWood() {
-    this.selectedWood = {
+      console.log('new Wood() called');
+      this.selectedWood = {
       id: '',
       name: '',
       shortName: '',

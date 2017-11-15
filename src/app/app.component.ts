@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from './auth/auth.service';
-import { UserInfo } from './auth/user-info';
+import { AuthService } from './site/auth/auth.service';
+import { UserInfo } from './site/auth/user-info';
 
 @Component({
   selector: 'app-root',

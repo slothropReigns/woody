@@ -4,13 +4,13 @@
     <div class="branding">
       <a routerLink="/" class="nav-link">
         <clr-icon shape="ruler-pencil" class="is-inverse"></clr-icon>
-        <span class="title">Project Woody</span>
+          <span class="title">PCD</span>
       </a>
     </div>
     <div class="header-nav">
       <a routerLink="/order" class="nav-link nav-text">Order</a>
-      <a routerLink="/edit/wood" class="nav-link nav-text">Wood Edit (temp)</a>
-      <a routerLink="/all-in-one" class="nav-link nav-text">AIO</a>
+        <a routerLink="/edit/wood" class="nav-link nav-text">Wood Edit</a>
+        <a routerLink="/all-in-one" class="nav-link nav-text"></a>
       <a routerLink="/dashboard" class="nav-link nav-text">Dash</a>
     </div>
     <form class="search">
@@ -19,8 +19,8 @@
       </label>
     </form>
     <div class="header-actions">
-      <a *ngIf="(isLoggedIn|async)" class="nav-link nav-text">{{(currentUser()|async).email}}</a>
-      <a routerLink="/login" *ngIf="!(isLoggedIn|async)" class="nav-link nav-text">Login</a>
+      <a *ngIf="(isLoggedIn||async)" class="nav-link nav-text">{{(currentUser()|async).email}}</a>
+      <a routerLink="/login" *ngIf="!(isLoggedIn||async)" class="nav-link nav-text">Login</a>
       <clr-dropdown>
         <button class="nav-icon" clrDropdownTrigger>
           <clr-icon shape="user"></clr-icon>
@@ -38,32 +38,32 @@
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>
+      <!--_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_ S I D E N A V +_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+-->
     <nav class="sidenav">
       <section class="sidenav-content">
-        <a href="..." class="nav-link active">
-          Nav Element 1
+        <a class="nav-link active">
+            My Profile
         </a>
-        <a href="..." class="nav-link">
-          Nav Element 2
+        <a class="nav-link">
+            Order Page
         </a>
         <section class="nav-group collapsible">
           <input id="tabexample1" type="checkbox">
-          <label for="tabexample1">Collapsible Nav Element</label>
+            <label for="tabexample1">My Past Orders</label>
           <ul class="nav-list">
-            <li><a class="nav-link">Link 1</a></li>
-            <li><a class="nav-link">Link 2</a></li>
+              <li><a class="nav-link">Saved Door Profiles</a></li>
+              <li><a class="nav-link">etc...</a></li>
           </ul>
         </section>
-        <section class="nav-group">
+          <section class="nav-group collapsible">
           <input id="tabexample2" type="checkbox">
-          <label for="tabexample2">Default Nav Element</label>
+              <label for="tabexample2">Helpful Links</label>
+              <!-- - - - - - - - - - - - - - - need to link ngClass and 'active' tag - - - - - --->
           <ul class="nav-list">
-            <li><a class="nav-link">Link 1</a></li>
-            <li><a class="nav-link">Link 2</a></li>
-            <li><a class="nav-link active">Link 3</a></li>
-            <li><a class="nav-link">Link 4</a></li>
-            <li><a class="nav-link">Link 5</a></li>
-            <li><a class="nav-link">Link 6</a></li>
+              <li><a class="nav-link">Wood Type Overview</a></li>
+              <li><a class="nav-link">Overlay and You: Measurements</a></li>
+              <li><a class="nav-link active">Intro Video: How to use this site</a></li>
+              <li><a class="nav-link">Finishing 101</a></li>
           </ul>
         </section>
       </section>

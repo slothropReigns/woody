@@ -6,56 +6,58 @@ import { AuthService } from './site/auth/auth.service';
 import { UserInfo } from './site/auth/user-info';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styles: [ '' ]
 })
 export class AppComponent {
-  isLoggedIn = new BehaviorSubject<boolean>(false);
-  private alertType = null;
-  private alertMessage = '';
+    isLoggedIn = new BehaviorSubject<boolean>(false);
+    private alertType = null;
+    private alertMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.authService.isLoggedIn().subscribe(this.isLoggedIn);
-  }
+    // TODO move all this junk out
 
-  currentUser(): Observable<UserInfo> {
-    return this.authService.currentUser();
-  }
+    constructor(private authService: AuthService, private router: Router) {
+        this.authService.isLoggedIn().subscribe(this.isLoggedIn);
+    }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate([ '/' ]);
-  }
+    currentUser(): Observable<UserInfo> {
+        return this.authService.currentUser();
+    }
 
-  onResetPasswordSuccess() {
-    this.alertType = 'success';
-    this.alertMessage = 'Reset Password Sent!';
-  }
+    logout() {
+        this.authService.logout();
+        this.router.navigate([ '/' ]);
+    }
 
-  onLoginSuccess() {
-    this.alertType = 'success';
-    this.alertMessage = 'Login Success!';
-  }
+    onResetPasswordSuccess() {
+        this.alertType = 'success';
+        this.alertMessage = 'Reset Password Sent!';
+    }
 
-  onRegisterSuccess() {
-    this.alertType = 'success';
-    this.alertMessage = 'User registered!';
-  }
+    onLoginSuccess() {
+        this.alertType = 'success';
+        this.alertMessage = 'Login Success!';
+    }
 
-  onError(err) {
-    this.alertType = 'danger';
-    this.alertMessage = err;
-  }
+    onRegisterSuccess() {
+        this.alertType = 'success';
+        this.alertMessage = 'User registered!';
+    }
 
-  onLoggedOut() {
-    // Just reset any displayed messsage.
-    this.alertType = null;
-    this.alertMessage = '';
-  }
+    onError(err) {
+        this.alertType = 'danger';
+        this.alertMessage = err;
+    }
 
-  alertClosed() {
-    this.alertType = null;
-    this.alertMessage = '';
-  }
+    onLoggedOut() {
+        // Just reset any displayed messsage.
+        this.alertType = null;
+        this.alertMessage = '';
+    }
+
+    alertClosed() {
+        this.alertType = null;
+        this.alertMessage = '';
+    }
 }

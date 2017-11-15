@@ -8,7 +8,7 @@ import { UserInfo } from '../auth/user-info';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: [ './home.component.css' ]
+    styles: [ '' ]
 })
 export class HomeComponent {
   userInfo: Observable<UserInfo>;

@@ -6,7 +6,7 @@ import { AuthService } from '../auth.service';
 @Component({
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
-    styleUrls: ['./login-page.component.css']
+    styles: [ '' ]
 })
 export class LoginPageComponent {
     isLoggedIn = new BehaviorSubject<boolean>(false);

@@ -5,7 +5,7 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-all-in-one-page',
   templateUrl: './all-in-one-page.component.html',
-  styleUrls: [ './all-in-one-page.component.css' ]
+    styles: [ '' ]
 })
 export class AllInOnePageComponent {
   isLoggedIn = new BehaviorSubject<boolean>(false);

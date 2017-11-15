@@ -6,7 +6,7 @@ import { UserInfo } from '../user-info';
 @Component({
   selector: 'app-display-user',
   templateUrl: './display-user.component.html',
-  styleUrls: [ './display-user.component.css' ]
+    styles: [ '' ]
 })
 export class DisplayUserComponent {
   @Output() onLoggedOut = new EventEmitter();

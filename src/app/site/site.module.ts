@@ -11,12 +11,17 @@ import { RegisterUserComponent } from './auth/register-user/register-user.compon
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { HeaderComponent } from './header/header.component';
 import { RegisterPageComponent } from './auth/pages/register-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClarityModule } from 'clarity-angular';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
         CommonModule,
-
-
+        FormsModule,
+        ReactiveFormsModule,
+        ClarityModule,
+        RouterModule
     ],
     declarations: [
         DisplayUserComponent,
@@ -29,6 +34,9 @@ import { RegisterPageComponent } from './auth/pages/register-page.component';
         RegisterUserComponent,
         RegisterPageComponent,
         ResetPasswordComponent,
+        HeaderComponent
+    ],
+    exports: [
         HeaderComponent
     ]
 })

@@ -6,10 +6,14 @@ import { OrderAccordionComponent } from './order-accordion/order-accordion.compo
 import { AgGridModule } from 'ag-grid-angular';
 import { CellRenderComponent } from './door-details/cell-render/cell-render.component';
 import { GroupOptionsComponent } from './group-options/group-options.component';
+import { PipesModule } from '../shared/pipes/pipes.module';
+import { ClarityModule } from 'clarity-angular';
 
 @NgModule({
     imports: [
         CommonModule,
+        PipesModule.forRoot(),
+        ClarityModule.forRoot(),
         AgGridModule.withComponents(
             [ CellRenderComponent ]
         )
@@ -17,7 +21,8 @@ import { GroupOptionsComponent } from './group-options/group-options.component';
     declarations: [
         DoorDetailsComponent,
         OrderAccordionComponent,
-        GroupOptionsComponent
+        GroupOptionsComponent,
+        CellRenderComponent
     ],
     providers: [ OptionsService ]
 })

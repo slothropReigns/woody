@@ -19,8 +19,6 @@ import { AppComponent } from './app.component';
 import { AuthService } from './site/auth/auth.service';
 import { LoggedInGuard } from './site/auth/logged-in-guard';
 import { WoodEditComponent } from './adminFunctions/wood-edit/wood-edit.component';
-import { ToFracPipe } from './shared/to-frac.pipe';
-import { ToDeciPipe } from './shared/to-deci.pipe';
 import { WoodsService } from './shared/woods.service';
 import { OrderModule } from './ordering/order.module';
 import { SiteModule } from './site/site.module';
@@ -30,8 +28,6 @@ import { SiteModule } from './site/site.module';
     declarations: [
         AppComponent,
         WoodEditComponent,
-        ToFracPipe,
-        ToDeciPipe,
     ],
     imports: [
         BrowserModule,
@@ -45,9 +41,10 @@ import { SiteModule } from './site/site.module';
         AngularFireModule.initializeApp(firebaseConfig, 'woodFire'),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        AngularFirestoreModule
+        AngularFirestoreModule,
 
     ],
+    exports: [ FormsModule, ReactiveFormsModule, ClarityModule ],
     providers: [ AuthService, LoggedInGuard, WoodsService ],
     bootstrap: [ AppComponent ],
 })

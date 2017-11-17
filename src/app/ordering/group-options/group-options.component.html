@@ -1,14 +1,39 @@
 <div class="form-group">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     Materials Selection
+                    <clr-signpost>
+                        <clr-signpost-content *clrIfOpen>
+                            <h3 style="margin-top: 0">title</h3>
+                            <p>...</p>
+                        </clr-signpost-content>
+                    </clr-signpost>
                 </div>
                 <div class="card-block">
-                    <select title="materialsSelection" name="materialsSelection" id="materialsSelection" class="form-control">
+                    <select title="materialsSelection" name="materialsSelection" id="materialsSelection"
+                            class="form-control">
                         <option *ngFor="let wood of woods; let i = index" value="{{ i }}">
                             {{ wood.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-link">Footer Action 1</button>
+                    <button class="btn btn-sm btn-link">Footer Action 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Frame Width
+                </div>
+                <div class="card-block">
+                    <select title="frameType" name="frameType" id="frameType" class="form-control">
+                        <option *ngFor="let width of defFrameWidth.opt; let i = index" value="{{ i }}">
+                            {{ width.name }}
                         </option>
                     </select>
                 </div>
@@ -26,7 +51,8 @@
                     Panel Profile
                 </div>
                 <div class="card-block">
-                    <select title="panelProfile" name="panelProfile" id="panelProfile" class="form-control form-control-sm">
+                    <select title="panelProfile" name="panelProfile" id="panelProfile"
+                            class="form-control form-control-sm">
                         <option *ngFor="let profile of panelProfile.opt; let i = index" value="{{ i }}">
                             {{ profile.name }}
                         </option>
@@ -44,7 +70,8 @@
                     Outside Edge
                 </div>
                 <div class="card-block">
-                    <select title="outsideEdge" name="outsideEdge" id="outsideEdge" class="form-control form-control-sm">
+                    <select title="outsideEdge" name="outsideEdge" id="outsideEdge"
+                            class="form-control form-control-sm">
                         <option *ngFor="let edge of outsideEdge.opt" value="{{ i }}">
                             {{ edge.name }}
                         </option>
@@ -62,7 +89,8 @@
                     Inside Profile
                 </div>
                 <div class="card-block">
-                    <select title="insideProfile" name="insideProfile" id="insideProfile" class="form-control form-control-sm">
+                    <select title="insideProfile" name="insideProfile" id="insideProfile"
+                            class="form-control form-control-sm">
                         <option *ngFor="let profile of insideProfile.opt" value="{{ i }}">
                             {{ profile.name }}
                         </option>

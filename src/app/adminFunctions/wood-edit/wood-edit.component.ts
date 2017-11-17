@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
 import { Wood } from '../../shared/wood.model';
 import { WoodsService } from '../../shared/woods.service';
 
@@ -12,9 +11,7 @@ import { WoodsService } from '../../shared/woods.service';
 export class WoodEditComponent implements OnInit {
   // woodEditForm: FormGroup;
   woods: Wood[];
-  subscription: Subscription;
   selectedWood: Wood;
-  placeholder: string;
   addingNewWood: boolean;
   addedAlert: boolean;
   updatedAlert: boolean;

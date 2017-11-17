@@ -9,6 +9,8 @@ export class OptionsService {
     doorStyle: Selection = new Selection();
     archLayout: Selection = new Selection();
     multiPanel: Selection = new Selection();
+    frameType: Selection = new Selection();
+    defFrameWidth: Selection = new Selection();
 
     constructor() {
         // .config = {...} these bits show whether this option is applicable / should be seen
@@ -76,5 +78,18 @@ export class OptionsService {
             { name: 'Top (Standard)', shortName: 'STD' },
             { name: 'Left / Right (As Pair)', shortName: 'PAIR' },
             { name: 'Top and Bottom', shortName: 'DBL' } ];
+
+        this.frameType.config = { cs: false, mit: false, fo: false, fp: false, rp: false };
+        this.frameType.opt = [
+            { name: 'Cope and Stick - 2-3/8"', shortName: 'C&S' },
+            { name: 'Miter - 2-3/8"', shortName: 'MTR' },
+            { name: 'Miter - 3"', shortName: 'MTR3' } ];
+
+        this.defFrameWidth.config = { cs: false, mit: false, fo: false, fp: false, rp: false };
+        this.defFrameWidth.opt = [
+            { name: '2-3/8" - Standard', shortName: '2-3/8"' },
+            { name: '2"', shortName: '2"' },
+            { name: '3"', shortName: '3"' },
+            { name: '4"', shortName: '4"' } ];
     }
 }

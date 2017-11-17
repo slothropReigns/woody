@@ -17,6 +17,8 @@ export class GroupOptionsComponent implements OnInit {
     doorStyle: Selection;
     archLayout: Selection;
     multiPanel: Selection;
+    frameType: Selection;
+    defFrameWidth: Selection;
 
 
 
@@ -28,23 +30,22 @@ export class GroupOptionsComponent implements OnInit {
         this.doorStyle = this.options.doorStyle;
         this.archLayout = this.options.doorStyle;
         this.multiPanel = this.options.multiPanel;
+        this.frameType = this.options.frameType;
+        this.defFrameWidth = this.options.defFrameWidth;
     }
 
 
     ngOnInit() {
-        this.getWoods();
+        this.getWoodsUpdated();
     }
 
-    getWoods() {
+    getWoodsUpdated() {
         console.log('hmm');
         this.woodsService.getWoods().subscribe(
             woods => {
                 this.woods = woods;
                 console.log(woods);
                 console.log('getwoods called from group opt');
-                // if (!this.selectedWood) {
-                //     this.selectedWood = woods[ 0 ];
-                // }
             }
         );
     }

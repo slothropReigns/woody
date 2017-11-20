@@ -10,7 +10,7 @@ import { WoodsService } from '../../shared/woods.service';
     styles: [ '' ]
 })
 export class GroupOptionsComponent implements OnInit {
-    woods: Wood[];
+    woods: Wood[] = [];
     panelProfile: Selection;
     outsideEdge: Selection;
     insideProfile: Selection;
@@ -19,11 +19,18 @@ export class GroupOptionsComponent implements OnInit {
     multiPanel: Selection;
     frameType: Selection;
     defFrameWidth: Selection;
+    grainDirection: Selection;
 
+    // TODO refactor to use optionsList instead of individual options
+    optionsList: Selection[] = [];
 
 
     constructor(private options: OptionsService,
                 private woodsService: WoodsService) {
+
+        this.options.generateOptionsList();
+        this.optionsList = this.options.optionsList;
+
         this.panelProfile = this.options.panelProfile;
         this.outsideEdge = this.options.outsideEdge;
         this.insideProfile = this.options.insideProfile;
@@ -32,6 +39,7 @@ export class GroupOptionsComponent implements OnInit {
         this.multiPanel = this.options.multiPanel;
         this.frameType = this.options.frameType;
         this.defFrameWidth = this.options.defFrameWidth;
+        this.grainDirection = this.options.grainDirection;
     }
 
 

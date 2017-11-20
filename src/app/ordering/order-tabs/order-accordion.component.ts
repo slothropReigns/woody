@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'app-order-accordion',
     templateUrl: './order-accordion.component.html',
-    styleUrls: [ './order-accordion.component.css' ]
+    styles: [ '' ]
 })
 
 export class OrderAccordionComponent implements OnInit {

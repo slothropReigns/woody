@@ -1,0 +1,12 @@
+
+Order Accordion - holds the tabs
+    Group-Options - Top level options / filtered by which page they go on
+        Door-Details - ag-grid for doors
+        5-PC - ag-grid for 5pc drawer fronts
+        slab - ag-grid for slabs
+
+
+
+TOP
+    Wood Type
+    Frame type ( FP / RP )

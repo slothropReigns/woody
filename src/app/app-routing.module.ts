@@ -8,7 +8,7 @@ import { LoginPageComponent } from './site/auth/pages/login-page.component';
 import { RegisterPageComponent } from './site/auth/pages/register-page.component';
 import { ResetPasswordComponent } from './site/auth/reset-password/reset-password.component';
 import { HomeComponent } from './site/home/home.component';
-import { OrderAccordionComponent } from './ordering/order-accordion/order-accordion.component';
+import { OrderAccordionComponent } from './ordering/order-tabs/order-accordion.component';
 import { WoodEditComponent } from './adminFunctions/wood-edit/wood-edit.component';
 
 const appRoutes: Routes = [

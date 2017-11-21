@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-order-accordion',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
     styles: [ '' ]
 })
 
-export class OrderAccordionComponent implements OnInit {
+export class OrderAccordionComponent implements OnInit, DoCheck {
+    activeTab: string = 'group'; // GROUP -- DOORS -- FRONTS -- SLABS (these are the possibilities)
 
     constructor() {
     }
@@ -14,4 +15,6 @@ export class OrderAccordionComponent implements OnInit {
     ngOnInit() {
     }
 
+    ngDoCheck() {
+    }
 }

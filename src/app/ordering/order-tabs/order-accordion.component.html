@@ -1,24 +1,24 @@
 <clr-tabs>
-    <clr-tab>
-        <button clrTabLink id="link1">Order Options</button>
+    <clr-tab #groupTab>
+        <button (click)="activeTab = 'group'" clrTabLink>Order Options</button>
         <clr-tab-content id="orderOptions">
             <app-group-options></app-group-options>
         </clr-tab-content>
     </clr-tab>
-    <clr-tab>
-        <button clrTabLink>Doors</button>
+    <clr-tab #doorTab>
+        <button (click)="activeTab = 'doors'" clrTabLink>Doors</button>
         <clr-tab-content>
             <app-door-details></app-door-details>
         </clr-tab-content>
     </clr-tab>
-    <clr-tab>
-        <button clrTabLink>5-Piece Drawer Fronts</button>
+    <clr-tab #frontTab>
+        <button (click)="activeTab = 'fronts'" clrTabLink>5-Piece Drawer Fronts</button>
         <clr-tab-content>
             <app-drw-front-grid></app-drw-front-grid>
         </clr-tab-content>
     </clr-tab>
-    <clr-tab>
-        <button clrTabLink>Solid Slabs</button>
+    <clr-tab #slabTab>
+        <button (click)="activeTab = 'slabs'" clrTabLink>Solid Slabs</button>
         <clr-tab-content>
             <app-slab-grid></app-slab-grid>
         </clr-tab-content>

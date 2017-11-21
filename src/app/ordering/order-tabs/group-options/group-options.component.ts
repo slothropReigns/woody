@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { OptionsService } from './options.service';
 import { Selection } from './optionsInterfaces/options';
 import { Wood } from '../../../shared/wood.model';
@@ -9,19 +9,12 @@ import { WoodsService } from '../../../shared/woods.service';
     templateUrl: './group-options.component.html',
     styles: [ '' ]
 })
-export class GroupOptionsComponent implements OnInit {
-    woods: Wood[] = [];
-    panelProfile: Selection;
-    outsideEdge: Selection;
-    insideProfile: Selection;
-    doorStyle: Selection;
-    archLayout: Selection;
-    multiPanel: Selection;
-    frameType: Selection;
-    defFrameWidth: Selection;
-    grainDirection: Selection;
+export class GroupOptionsComponent implements OnInit, DoCheck {
 
-    // TODO refactor to use optionsList instead of individual options
+// Woods list and data
+    woods: Wood[] = [];
+
+// Assembled options list array
     optionsList: Selection[] = [];
 
 
@@ -30,21 +23,15 @@ export class GroupOptionsComponent implements OnInit {
 
         this.options.generateOptionsList();
         this.optionsList = this.options.optionsList;
-
-        this.panelProfile = this.options.panelProfile;
-        this.outsideEdge = this.options.outsideEdge;
-        this.insideProfile = this.options.insideProfile;
-        this.doorStyle = this.options.doorStyle;
-        this.archLayout = this.options.doorStyle;
-        this.multiPanel = this.options.multiPanel;
-        this.frameType = this.options.frameType;
-        this.defFrameWidth = this.options.defFrameWidth;
-        this.grainDirection = this.options.grainDirection;
     }
 
 
     ngOnInit() {
         this.getWoodsUpdated();
+    }
+
+    ngDoCheck() {
+        return;
     }
 
     getWoodsUpdated() {
@@ -58,5 +45,8 @@ export class GroupOptionsComponent implements OnInit {
         );
     }
 
+    confirmChoices() {
+
+    }
 }
 

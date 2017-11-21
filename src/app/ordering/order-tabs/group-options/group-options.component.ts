@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OptionsService } from './options.service';
 import { Selection } from './optionsInterfaces/options';
-import { Wood } from '../../shared/wood.model';
-import { WoodsService } from '../../shared/woods.service';
+import { Wood } from '../../../shared/wood.model';
+import { WoodsService } from '../../../shared/woods.service';
 
 @Component({
     selector: 'app-group-options',

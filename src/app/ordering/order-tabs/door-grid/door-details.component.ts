@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 import { GridOptions } from 'ag-grid/main';
-import { CellRenderComponent } from './cell-render/cell-render.component';
+import { CellRenderComponent } from '../cell-renderers/test-cell-render.component';
 
 @Component({
     selector: 'app-door-details',
     templateUrl: './door-details.component.html',
-    styleUrls: [ './door-details.component.css' ]
+    styles: [ '' ]
 })
 export class DoorDetailsComponent {
     testOptionsArray: string[];

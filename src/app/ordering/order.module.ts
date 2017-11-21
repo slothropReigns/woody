@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OptionsService } from './group-options/options.service';
-import { DoorDetailsComponent } from './door-grid/door-details.component';
+import { OptionsService } from './order-tabs/group-options/options.service';
+import { DoorDetailsComponent } from './order-tabs/door-grid/door-details.component';
 import { OrderAccordionComponent } from './order-tabs/order-accordion.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { CellRenderComponent } from './door-grid/cell-render/cell-render.component';
-import { GroupOptionsComponent } from './group-options/group-options.component';
+import { CellRenderComponent } from './order-tabs/cell-renderers/test-cell-render.component';
+import { GroupOptionsComponent } from './order-tabs/group-options/group-options.component';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { ClarityModule } from 'clarity-angular';
-import { SlabGridComponent } from './slab-grid/slab-grid.component';
-import { DrwFrontGridComponent } from './drw-front-grid/drw-front-grid.component';
+import { SlabGridComponent } from './order-tabs/slab-grid/slab-grid.component';
+import { DrwFrontGridComponent } from './order-tabs/drw-front-grid/drw-front-grid.component';
+import { FrameWidthComponent } from './order-tabs/cell-renderers/frame-width.component';
+import { ReviewWidgetComponent } from './review-widget/review-widget.component';
 
 @NgModule({
     imports: [
@@ -26,7 +28,9 @@ import { DrwFrontGridComponent } from './drw-front-grid/drw-front-grid.component
         GroupOptionsComponent,
         CellRenderComponent,
         SlabGridComponent,
-        DrwFrontGridComponent
+        DrwFrontGridComponent,
+        FrameWidthComponent,
+        ReviewWidgetComponent
     ],
     providers: [ OptionsService ]
 })

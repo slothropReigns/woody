@@ -8,4 +8,5 @@ export interface OptionConfiguration {
     fo: boolean;
     fp: boolean;
     rp: boolean;
+    slab: boolean;
 }

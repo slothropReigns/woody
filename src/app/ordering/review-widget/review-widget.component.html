@@ -1,3 +1,10 @@
-<p>
-  REVIEW WIDGET
-</p>
+<div>
+    <ul>
+        <li>
+            Wood Choice - {{ woodChoice?.name }}
+        </li>
+        <li *ngFor="let option of orderOptions; let i = index">
+            {{ optionNames[i] }} - {{ option.shortName }}
+        </li>
+    </ul>
+</div>

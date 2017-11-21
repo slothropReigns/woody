@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Selection } from './optionsInterfaces/options';
+import { SelectionItem } from './optionsInterfaces/selectionItem';
+import { Subject } from 'rxjs/Subject';
+import { Wood } from '../../../shared/wood.model';
 
 @Injectable()
 export class OptionsService {
@@ -21,10 +24,18 @@ export class OptionsService {
 // ARRAY OF ALL OPTIONS
     optionsList: Selection[] = [];
 
+// received list of CHOSEN options
+    optionsChosen: SelectionItem[];
+    woodChosen: Wood;
+
+    orderOptions = new Subject<SelectionItem[]>();
+    orderWoodType = new Subject<Wood>();
+
 
     constructor() {
 
 // PANEL PROFILE
+        this.panelProfile.id = 'panelProfile';
         this.panelProfile.config = {
             cs: true,
             mit: true,
@@ -47,6 +58,7 @@ export class OptionsService {
             { name: 'Custom-S (Square) RP', shortName: 'Custom-S-RP' }, ];
 
 // DOOR STYLE
+        this.doorStyle.id = 'doorStyle';
         this.doorStyle.config = {
             cs: true,
             mit: false,
@@ -65,6 +77,7 @@ export class OptionsService {
 
 // OUTSIDE EDGE
 // TODO ask kevin about when miter can get outside edge... depending on miter profile i guess
+        this.outsideEdge.id = 'outsideEdge';
         this.outsideEdge.config = {
             cs: true,
             mit: true,
@@ -93,6 +106,7 @@ export class OptionsService {
             { name: 'RS', shortName: 'RS' }, ];
 
 // INSIDE PROFILE
+        this.insideProfile.id = 'insideProfile';
         this.insideProfile.config = {
             cs: true,
             mit: false,
@@ -111,6 +125,7 @@ export class OptionsService {
 
 // MULTI PANEL
 // TODO fill in warranty info
+        this.multiPanel.id = 'multiPanel';
         this.multiPanel.config = {
             cs: true,
             mit: true,
@@ -123,57 +138,21 @@ export class OptionsService {
         this.multiPanel.signPostText = 'Adding a multiple panels to a door is a great way to increase structural' +
             'stability as well as a nice aesthetic. Doors over xx inches tall or wide require a center rail or' +
             'else we must void our warranty.';
-        this.multiPanel.opt = [
-            {
-                name: '1x1 Standard', shortName: '1x1',
-                price: '999'
-            },
-            {
-                name: '1x2 Square Over Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '1x3 Square Over Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '1x4 Square Over Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '1x5 Square Over Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '1x6 Square Over Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '2x1 Square Beside Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '3x1 Square Beside Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '4x1 Square Beside Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '5x1 Square Beside Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '6x1 Square Beside Square', shortName: '1x2',
-                price: '999'
-            },
-            {
-                name: '2x2 Grid', shortName: '1x2',
-                price: '999'
-            } ];
+        this.multiPanel.opt = [ { name: '1x1 Standard', shortName: '1x1', price: '999' },
+            { name: '1x2 Square Over Square', shortName: '1x2', price: '999' },
+            { name: '1x3 Square Over Square', shortName: '1x2', price: '999' },
+            { name: '1x4 Square Over Square', shortName: '1x2', price: '999' },
+            { name: '1x5 Square Over Square', shortName: '1x2', price: '999' },
+            { name: '1x6 Square Over Square', shortName: '1x2', price: '999' },
+            { name: '2x1 Square Beside Square', shortName: '1x2', price: '999' },
+            { name: '3x1 Square Beside Square', shortName: '1x2', price: '999' },
+            { name: '4x1 Square Beside Square', shortName: '1x2', price: '999' },
+            { name: '5x1 Square Beside Square', shortName: '1x2', price: '999' },
+            { name: '6x1 Square Beside Square', shortName: '1x2', price: '999' },
+            { name: '2x2 Grid', shortName: '1x2', price: '999' } ];
 
 // ARCH LAYOUT
+        this.archLayout.id = 'archLayout';
         this.archLayout.config = {
             cs: true,
             mit: false,
@@ -186,21 +165,13 @@ export class OptionsService {
         this.archLayout.signPostText = 'If you choose the option for Left / Right (as a pair), please make sure all' +
             'doors are ordered in even numbers or else make sure to mark which doors should not be pairs.';
         this.archLayout.opt = [
-            {
-                name: 'Top (Standard)', shortName: 'STD',
-                price: '999'
-            },
-            {
-                name: 'Left / Right (As Pair)', shortName: 'PAIR',
-                price: '999'
-            },
-            {
-                name: 'Top and Bottom', shortName: 'DBL',
-                price: '999'
-            } ];
+            { name: 'Top (Standard)', shortName: 'STD', price: '999' },
+            { name: 'Left / Right (As Pair)', shortName: 'PAIR', price: '999' },
+            { name: 'Top and Bottom', shortName: 'DBL', price: '999' } ];
 
 // FRAME TYPE ( cs/ mit / mit 3 )
 // TODO figure out if this is necessary or how to do this elsewhere
+        this.frameType.id = 'frameType';
         this.frameType.config = {
             cs: false,
             mit: false,
@@ -217,6 +188,7 @@ export class OptionsService {
             { name: 'Miter - 3"', shortName: 'MTR3' } ];
 
 // FRAME WIDTH
+        this.defFrameWidth.id = 'defFrameWidth';
         this.defFrameWidth.config = {
             cs: true,
             mit: false,
@@ -235,6 +207,7 @@ export class OptionsService {
             { name: '4"', shortName: '4"' } ];
 
 // GRAIN DIRECTION
+        this.grainDirection.id = 'grainDirection';
         this.grainDirection.config = {
             cs: true,
             mit: true,
@@ -252,6 +225,7 @@ export class OptionsService {
 
 // FLAT OR RAISED
 // TODO hmmm.... how to rectify
+        this.flatOrRaised.id = 'flatOrRaised';
         this.flatOrRaised.config = {
             cs: true,
             mit: true,
@@ -267,6 +241,7 @@ export class OptionsService {
             { name: '5/8" Raised Panel', shortName: 'RP' } ];
 
 // BORING OFFSET
+        this.boringOffset.id = 'boringOffset';
         this.boringOffset.config = {
             cs: true,
             mit: true,
@@ -285,6 +260,7 @@ export class OptionsService {
             { name: '5"', shortName: '5"' } ];
 
 // BORING TAB
+        this.boringTab.id = 'boringTab';
         this.boringTab.config = {
             cs: true,
             mit: true,
@@ -299,7 +275,6 @@ export class OptionsService {
             { name: '3/16"', shortName: '3/16"' },
             { name: '3/32"', shortName: '3/32"' },
             { name: '1/8"', shortName: '1/8"' } ];
-
     }
 
     generateOptionsList() {
@@ -317,5 +292,16 @@ export class OptionsService {
         this.optionsList[ 11 ] = this.boringTab;
 
         console.log(this.optionsList);
+    }
+
+    confirmChosenOptions(opts: SelectionItem[], wood: Wood) {
+        this.optionsChosen = opts;
+        this.woodChosen = wood;
+        this.orderOptions.next(opts);
+        this.orderWoodType.next(wood);
+    }
+
+    getChosenOptions() {
+        return this.optionsChosen;
     }
 }

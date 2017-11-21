@@ -3,6 +3,7 @@ import { OptionsService } from './options.service';
 import { Selection } from './optionsInterfaces/options';
 import { Wood } from '../../../shared/wood.model';
 import { WoodsService } from '../../../shared/woods.service';
+import { SelectionItem } from './optionsInterfaces/selectionItem';
 
 @Component({
     selector: 'app-group-options',
@@ -13,16 +14,18 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
 
 // Woods list and data
     woods: Wood[] = [];
+    woodSelected: Wood;
 
 // Assembled options list array
     optionsList: Selection[] = [];
+    optionsChosen: SelectionItem[] = [];
 
 
-    constructor(private options: OptionsService,
+    constructor(private optionsService: OptionsService,
                 private woodsService: WoodsService) {
 
-        this.options.generateOptionsList();
-        this.optionsList = this.options.optionsList;
+        this.optionsService.generateOptionsList();
+        this.optionsList = this.optionsService.optionsList;
     }
 
 
@@ -40,13 +43,13 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
             woods => {
                 this.woods = woods;
                 console.log(woods);
-                console.log('getwoods called from group opt');
+                console.log('get woods called from group opt');
             }
         );
     }
 
     confirmChoices() {
-
+        this.optionsService.confirmChosenOptions(this.optionsChosen, this.woodSelected);
     }
 }
 

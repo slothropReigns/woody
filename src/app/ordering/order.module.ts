@@ -12,10 +12,12 @@ import { SlabGridComponent } from './order-tabs/slab-grid/slab-grid.component';
 import { DrwFrontGridComponent } from './order-tabs/drw-front-grid/drw-front-grid.component';
 import { FrameWidthComponent } from './order-tabs/cell-renderers/frame-width.component';
 import { ReviewWidgetComponent } from './review-widget/review-widget.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
         PipesModule.forRoot(),
         ClarityModule.forRoot(),
         AgGridModule.withComponents(

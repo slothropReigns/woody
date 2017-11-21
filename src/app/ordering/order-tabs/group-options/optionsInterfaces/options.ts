@@ -6,4 +6,5 @@ export class Selection {
     opt?: SelectionItem[];
     signPostTitle?: string;
     signPostText?: string;
+    id?: string;
 }

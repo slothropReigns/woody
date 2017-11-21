@@ -15,8 +15,9 @@
                 </div>
                 <div class="card-block">
                     <select title="materialsSelection" name="materialsSelection"
-                            id="materialsSelection" class="form-control">
-                        <option *ngFor="let wood of woods; let i = index" value="{{ i }}">
+                            id="materialsSelection" class="form-control"
+                            [(ngModel)]="woodSelected">
+                        <option *ngFor="let wood of woods; let i = index" [ngValue]="wood">
                             {{ wood.name }}
                         </option>
                     </select>
@@ -42,8 +43,10 @@
                 </div>
                 <div class="card-block">
                     <select title="{{ listOpt.signPostTitle }}" name="{{ listOpt.signPostTitle }}"
-                            id="{{ listOpt.signPostTitle }}" class="form-control">
-                        <option *ngFor="let select of listOpt.opt; let i = index" value="{{ i }}">
+                            id="{{ listOpt.id }}" class="form-control"
+                            [(ngModel)]="optionsChosen[i]">
+                        <option *ngFor="let select of listOpt.opt; let i = index"
+                                [ngValue]="select">
                             {{ select.name }}
                         </option>
                     </select>
@@ -54,3 +57,4 @@
         </div>
     </div>
 </div>
+<app-review-widget></app-review-widget>

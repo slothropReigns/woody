@@ -44,7 +44,7 @@ import { SiteModule } from './site/site.module';
         AngularFirestoreModule,
 
     ],
-    exports: [ FormsModule, ReactiveFormsModule, ClarityModule ],
+    exports: [ FormsModule, ReactiveFormsModule, ClarityModule, BrowserModule ],
     providers: [ AuthService, LoggedInGuard, WoodsService ],
     bootstrap: [ AppComponent ],
 })

@@ -10,3 +10,18 @@ Order Accordion - holds the tabs
 TOP
     Wood Type
     Frame type ( FP / RP )
+
+
+
+ panelProfile
+    outsideEdge
+    insideProfile
+    doorStyle
+    archLayout
+    multiPanel
+    frameType
+    defFrameWidth
+    grainDirection
+    flatOrRaised
+    boringOffset
+    boringTab

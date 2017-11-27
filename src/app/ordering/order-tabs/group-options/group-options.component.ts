@@ -24,8 +24,7 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
     constructor(private optionsService: OptionsService,
                 private woodsService: WoodsService) {
 
-        this.optionsService.generateOptionsList();
-        this.optionsList = this.optionsService.optionsList;
+        this.optionsList = this.optionsService.primaryOptionsList;
     }
 
 

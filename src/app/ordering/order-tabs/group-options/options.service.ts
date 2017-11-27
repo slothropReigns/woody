@@ -17,12 +17,27 @@ export class OptionsService {
     frameType: Selection = new Selection();
     defFrameWidth: Selection = new Selection();
     grainDirection: Selection = new Selection();
-    flatOrRaised: Selection = new Selection();
     boringOffset: Selection = new Selection();
     boringTab: Selection = new Selection();
+    boringYesNo: Selection = new Selection();
+    lites: Selection = new Selection();
+    vGroove: Selection = new Selection();
+    miterProfile: Selection = new Selection();
 
-// ARRAY OF ALL OPTIONS
-    optionsList: Selection[] = [];
+// ARRAYS OF OPTIONS FED TO DISPLAY COMPONENTS
+    primaryOptionsList: Selection[] = []; // options list for entire order
+
+    scOptionsList: Selection[] = []; // options if stick and cope chosen
+    miterOptionsList: Selection[] = []; // options if miter chosen
+
+    scDoorOptionsList: Selection[] = []; // options list for SC doors
+    miterDoorOptionsList: Selection[] = []; // options list for Miter doors
+
+    scDfOptionsList: Selection[] = []; // options list for five-piece df stick and cope
+    miterDfOptionsList: Selection[] = []; // options list for five-piece df miter
+
+    slabOptionsList: Selection[] = []; // options list for slabs only
+
 
 // received list of CHOSEN options
     optionsChosen: SelectionItem[];
@@ -31,6 +46,8 @@ export class OptionsService {
     orderOptions = new Subject<SelectionItem[]>();
     orderWoodType = new Subject<Wood>();
 
+// Get active tab from order accordion component
+    tabStatus = new Subject<string>();
 
     constructor() {
 
@@ -48,12 +65,12 @@ export class OptionsService {
         this.panelProfile.signPostText = 'Choose whether you want a raised or flat panel, and which profile you want' +
             'if a raised panel is chosen.';
         this.panelProfile.opt = [
+            { name: '3/8" Flat Panel', shortName: '3/8"FP' },
             { name: 'Cove RP', shortName: 'COVE-RP', note: 'Deep-Cut Profile Available' },
             { name: 'Shaker RP', shortName: 'SHAKER-RP', note: 'Deep-Cut Profile Available' },
             { name: 'Ogee RP', shortName: 'OGEE-RP', note: 'Deep-Cut Profile Available' },
             { name: 'Pillow RP', shortName: 'PILLOW-RP' },
             { name: 'Ogee with Bead RP', shortName: 'OGEEwBEAD-RP', note: 'Deep-Cut Profile Available' },
-            { name: '3/8" Flat Panel', shortName: '3/8"FP' },
             { name: 'Custom-R (Radius) RP', shortName: 'Custom-R-RP' },
             { name: 'Custom-S (Square) RP', shortName: 'Custom-S-RP' }, ];
 
@@ -75,8 +92,8 @@ export class OptionsService {
             { name: 'Shouldered Eyebrow', shortName: 'SH.E-Brow' },
             { name: 'Cathedral', shortName: 'CATH' }, ];
 
-// OUTSIDE EDGE
 // TODO ask kevin about when miter can get outside edge... depending on miter profile i guess
+// OUTSIDE EDGE
         this.outsideEdge.id = 'outsideEdge';
         this.outsideEdge.config = {
             cs: true,
@@ -123,8 +140,8 @@ export class OptionsService {
             { name: 'Ogee', shortName: 'Ogee' }
         ];
 
-// MULTI PANEL
 // TODO fill in warranty info
+// MULTI PANEL
         this.multiPanel.id = 'multiPanel';
         this.multiPanel.config = {
             cs: true,
@@ -169,8 +186,8 @@ export class OptionsService {
             { name: 'Left / Right (As Pair)', shortName: 'PAIR', price: '999' },
             { name: 'Top and Bottom', shortName: 'DBL', price: '999' } ];
 
-// FRAME TYPE ( cs/ mit / mit 3 )
 // TODO figure out if this is necessary or how to do this elsewhere
+// FRAME TYPE ( cs/ mit / mit 3 )
         this.frameType.id = 'frameType';
         this.frameType.config = {
             cs: false,
@@ -223,23 +240,6 @@ export class OptionsService {
             { name: 'Vertical', shortName: 'V-GRAIN' },
             { name: 'Horizontal', shortName: 'H-GRAIN' } ];
 
-// FLAT OR RAISED
-// TODO hmmm.... how to rectify
-        this.flatOrRaised.id = 'flatOrRaised';
-        this.flatOrRaised.config = {
-            cs: true,
-            mit: true,
-            fo: false,
-            fp: false,
-            rp: false,
-            slab: false
-        };
-        this.flatOrRaised.signPostTitle = 'Flat or Raised';
-        this.flatOrRaised.signPostText = 'Select which style of inner panel you want for your doors.';
-        this.flatOrRaised.opt = [
-            { name: '3/8" Flat Panel', shortName: 'FP' },
-            { name: '5/8" Raised Panel', shortName: 'RP' } ];
-
 // BORING OFFSET
         this.boringOffset.id = 'boringOffset';
         this.boringOffset.config = {
@@ -275,23 +275,138 @@ export class OptionsService {
             { name: '3/16"', shortName: '3/16"' },
             { name: '3/32"', shortName: '3/32"' },
             { name: '1/8"', shortName: '1/8"' } ];
+
+// BORING YES / NO
+        this.boringYesNo.id = 'boringYesNo';
+        this.boringYesNo.config = {
+            cs: true,
+            mit: true,
+            fo: true,
+            fp: true,
+            rp: true,
+            slab: false
+        };
+        this.boringYesNo.signPostTitle = 'Bore this door?';
+        this.boringYesNo.signPostText = 'Select YES to have this door bored';
+        this.boringYesNo.opt = [
+            { name: 'NO', shortName: 'NO-BORE' },
+            { name: 'YES', shortName: 'BORE' } ];
+
+// LITES
+        this.lites.id = 'lites';
+        this.lites.config = {
+            cs: true,
+            mit: true,
+            fo: true,
+            fp: false,
+            rp: false,
+            slab: false
+        };
+        this.lites.signPostTitle = 'Lites';
+        this.lites.signPostText = 'Select number of \'lite\' openings. For selections with an odd number of lites,' +
+            'please describe preferred layout in door Note area..';
+        this.lites.opt = [
+            { name: 'Standard - No Lites', shortName: 'STD' },
+            { name: '2 - Lites', shortName: '2-Lite' },
+            { name: '3 - Lites', shortName: '3-Lite' },
+            { name: '4 - Lites', shortName: '4-Lite' },
+            { name: '5 - Lites', shortName: '5-Lite' },
+            { name: '6 - Lites', shortName: '6-Lite' },
+            { name: '7 - Lites', shortName: '7-Lite' },
+            { name: '8 - Lites', shortName: '8-Lite' },
+            { name: '9 - Lites', shortName: '9-Lite' },
+            { name: '10 - Lites', shortName: '10-Lite' },
+            { name: '11 - Lites', shortName: '11-Lite' },
+            { name: '12 - Lites', shortName: '12-Lite' } ];
+
+// V-Groove/bead
+        this.vGroove.id = 'vGroove';
+        this.vGroove.config = {
+            cs: true,
+            mit: true,
+            fo: false,
+            fp: true,
+            rp: true,
+            slab: true
+        };
+        this.vGroove.signPostTitle = 'V-Groove';
+        this.vGroove.signPostText = 'Select Bead or V-Groove and spacing. Bead or groove will follow selected grain direction';
+        this.vGroove.opt = [
+            { name: 'Standard - No bead or v-groove', shortName: 'STD' },
+            { name: 'V-Groove @ 1/2"', shortName: 'VGroove-1/2"' },
+            { name: 'Bead @ 1/2"', shortName: 'Bead-1/2"' },
+            { name: 'V-Groove @ 1"', shortName: 'VGroove-1"' },
+            { name: 'Bead @ 1"', shortName: 'Bead-1"' },
+            { name: 'V-Groove @ 1-1/2"', shortName: 'VGroove-1-1/2"' },
+            { name: 'Bead @ 1-1/2"', shortName: 'Bead-1-1/2"' },
+            { name: 'V-Groove @ 2"', shortName: 'VGroove-2"' },
+            { name: 'Bead @ 2"', shortName: 'Bead-2"' }, ];
+
+// Miter Profile
+        this.vGroove.id = 'miterProfile';
+        this.vGroove.config = {
+            cs: false,
+            mit: true,
+            fo: true,
+            fp: true,
+            rp: true,
+            slab: false
+        };
+        this.vGroove.signPostTitle = 'Miter Profile';
+        this.vGroove.signPostText = 'Select Miter Profile';
+        this.vGroove.opt = [
+            { name: '#000', shortName: '#000' },
+            { name: '#001', shortName: '#001' },
+            { name: '#140', shortName: '#140' },
+            { name: '#005', shortName: '#005' },
+            { name: '#010', shortName: '#010' },
+            { name: '#020', shortName: '#020' },
+            { name: '#030', shortName: '#030' },
+            { name: '#040', shortName: '#040' },
+            { name: '#070', shortName: '#070' },
+            { name: '#350', shortName: '#350' },
+            { name: '#444', shortName: '#444' } ];
+
+        this.generateOptionsLists(); // make arrays of options for different components to use
     }
 
-    generateOptionsList() {
-        this.optionsList[ 0 ] = this.panelProfile;
-        this.optionsList[ 1 ] = this.outsideEdge;
-        this.optionsList[ 2 ] = this.insideProfile;
-        this.optionsList[ 3 ] = this.doorStyle;
-        this.optionsList[ 4 ] = this.archLayout;
-        this.optionsList[ 5 ] = this.multiPanel;
-        this.optionsList[ 6 ] = this.frameType;
-        this.optionsList[ 7 ] = this.defFrameWidth;
-        this.optionsList[ 8 ] = this.grainDirection;
-        this.optionsList[ 9 ] = this.flatOrRaised;
-        this.optionsList[ 10 ] = this.boringOffset;
-        this.optionsList[ 11 ] = this.boringTab;
-
-        console.log(this.optionsList);
+    generateOptionsLists() {
+        this.primaryOptionsList.push( // PRIMARY
+            this.panelProfile,
+            this.frameType,
+            this.grainDirection,
+            this.boringTab,
+            this.boringOffset,
+            this.vGroove);
+        this.scOptionsList.push( // SECONDARY SC
+            this.outsideEdge,
+            this.insideProfile,
+            this.doorStyle,
+            this.archLayout,
+            this.defFrameWidth);
+        this.miterOptionsList.push( // SECONDARY MITER
+            this.miterProfile);
+        this.scDoorOptionsList.push( // SC DOORS
+            this.grainDirection,
+            this.boringYesNo,
+            this.vGroove,
+            this.doorStyle,
+            this.archLayout,
+            this.multiPanel);
+        this.miterDoorOptionsList.push( // MITER DOORS
+            this.grainDirection,
+            this.boringYesNo,
+            this.vGroove,
+            this.multiPanel);
+        this.scDfOptionsList.push( // SC DFs
+            this.grainDirection,
+            this.vGroove);
+        this.miterDfOptionsList.push( // MITER DFs
+            this.grainDirection,
+            this.vGroove);
+        this.slabOptionsList.push( // SLABS
+            this.grainDirection,
+            this.vGroove);
     }
 
     confirmChosenOptions(opts: SelectionItem[], wood: Wood) {

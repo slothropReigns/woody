@@ -25,7 +25,7 @@ export class OptionsService {
     miterProfile: Selection = new Selection();
 
 // ARRAYS OF OPTIONS FED TO DISPLAY COMPONENTS
-    primaryOptionsList: Selection[] = []; // options list for entire order
+    primaryOptionsList = []; // options list for entire order ......*************FIGURE THIS OUT****************
 
     scOptionsList: Selection[] = []; // options if stick and cope chosen
     miterOptionsList: Selection[] = []; // options if miter chosen
@@ -343,8 +343,8 @@ export class OptionsService {
             { name: 'Bead @ 2"', shortName: 'Bead-2"' }, ];
 
 // Miter Profile
-        this.vGroove.id = 'miterProfile';
-        this.vGroove.config = {
+        this.miterProfile.id = 'miterProfile';
+        this.miterProfile.config = {
             cs: false,
             mit: true,
             fo: true,
@@ -352,9 +352,9 @@ export class OptionsService {
             rp: true,
             slab: false
         };
-        this.vGroove.signPostTitle = 'Miter Profile';
-        this.vGroove.signPostText = 'Select Miter Profile';
-        this.vGroove.opt = [
+        this.miterProfile.signPostTitle = 'Miter Profile';
+        this.miterProfile.signPostText = 'Select Miter Profile';
+        this.miterProfile.opt = [
             { name: '#000', shortName: '#000' },
             { name: '#001', shortName: '#001' },
             { name: '#140', shortName: '#140' },
@@ -372,8 +372,8 @@ export class OptionsService {
 
     generateOptionsLists() {
         this.primaryOptionsList.push( // PRIMARY
-            this.panelProfile,
             this.frameType,
+            this.panelProfile,
             this.grainDirection,
             this.boringTab,
             this.boringOffset,

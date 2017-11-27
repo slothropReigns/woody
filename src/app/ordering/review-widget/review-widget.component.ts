@@ -20,7 +20,7 @@ export class ReviewWidgetComponent implements OnInit {
     optionNames: string[];
 
     constructor(private optionsService: OptionsService) {
-        this.optionNames = [
+        this.optionNames = [ // BAD -
             'Panel Profile',
             'Outside Edge',
             'Inside Profile',

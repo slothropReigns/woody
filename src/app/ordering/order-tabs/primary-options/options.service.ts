@@ -74,7 +74,6 @@ export class OptionsService {
             { name: 'Ogee with Bead RP', shortName: 'OGEEwBEAD-RP', note: 'Deep-Cut Profile Available' },
             { name: 'Custom-R (Radius) RP', shortName: 'Custom-R-RP' },
             { name: 'Custom-S (Square) RP', shortName: 'Custom-S-RP' }, ];
-
 // DOOR STYLE
         this.doorStyle.id = 'doorStyle';
         this.doorStyle.config = {
@@ -92,7 +91,6 @@ export class OptionsService {
             { name: 'Eyebrow', shortName: 'E-Brow' },
             { name: 'Shouldered Eyebrow', shortName: 'SH.E-Brow' },
             { name: 'Cathedral', shortName: 'CATH' }, ];
-
 // TODO ask kevin about when miter can get outside edge... depending on miter profile i guess
 // OUTSIDE EDGE
         this.outsideEdge.id = 'outsideEdge';
@@ -122,7 +120,6 @@ export class OptionsService {
             { name: 'K', shortName: 'K' },
             { name: 'SB', shortName: 'SB' },
             { name: 'RS', shortName: 'RS' }, ];
-
 // INSIDE PROFILE
         this.insideProfile.id = 'insideProfile';
         this.insideProfile.config = {
@@ -140,7 +137,6 @@ export class OptionsService {
             { name: 'Shaker', shortName: 'Shaker' },
             { name: 'Ogee', shortName: 'Ogee' }
         ];
-
 // TODO fill in warranty info
 // MULTI PANEL
         this.multiPanel.id = 'multiPanel';
@@ -168,7 +164,6 @@ export class OptionsService {
             { name: '5x1 Square Beside Square', shortName: '1x2', price: '999' },
             { name: '6x1 Square Beside Square', shortName: '1x2', price: '999' },
             { name: '2x2 Grid', shortName: '1x2', price: '999' } ];
-
 // ARCH LAYOUT
         this.archLayout.id = 'archLayout';
         this.archLayout.config = {
@@ -186,7 +181,6 @@ export class OptionsService {
             { name: 'Top (Standard)', shortName: 'STD', price: '999' },
             { name: 'Left / Right (As Pair)', shortName: 'PAIR', price: '999' },
             { name: 'Top and Bottom', shortName: 'DBL', price: '999' } ];
-
 // TODO figure out if this is necessary or how to do this elsewhere
 // FRAME TYPE ( cs/ mit / mit 3 )
         this.frameType.id = 'frameType';
@@ -204,7 +198,6 @@ export class OptionsService {
             { name: 'Stick and Cope', shortName: 'S&C' },
             { name: 'Miter - 2-3/8"', shortName: 'MTR' },
             { name: 'Miter - 3"', shortName: 'MTR3' } ];
-
 // FRAME WIDTH
         this.defFrameWidth.id = 'defFrameWidth';
         this.defFrameWidth.config = {
@@ -223,7 +216,6 @@ export class OptionsService {
             { name: '2"', shortName: '2"' },
             { name: '3"', shortName: '3"' },
             { name: '4"', shortName: '4"' } ];
-
 // GRAIN DIRECTION
         this.grainDirection.id = 'grainDirection';
         this.grainDirection.config = {
@@ -240,7 +232,6 @@ export class OptionsService {
         this.grainDirection.opt = [
             { name: 'Vertical', shortName: 'V-GRAIN' },
             { name: 'Horizontal', shortName: 'H-GRAIN' } ];
-
 // BORING OFFSET
         this.boringOffset.id = 'boringOffset';
         this.boringOffset.config = {
@@ -259,7 +250,6 @@ export class OptionsService {
             { name: '4"', shortName: '4"' },
             { name: '3"', shortName: '3"' },
             { name: '5"', shortName: '5"' } ];
-
 // BORING TAB
         this.boringTab.id = 'boringTab';
         this.boringTab.config = {
@@ -276,7 +266,6 @@ export class OptionsService {
             { name: '3/16"', shortName: '3/16"' },
             { name: '3/32"', shortName: '3/32"' },
             { name: '1/8"', shortName: '1/8"' } ];
-
 // BORING YES / NO
         this.boringYesNo.id = 'boringYesNo';
         this.boringYesNo.config = {
@@ -292,7 +281,6 @@ export class OptionsService {
         this.boringYesNo.opt = [
             { name: 'NO', shortName: 'NO-BORE' },
             { name: 'YES', shortName: 'BORE' } ];
-
 // LITES
         this.lites.id = 'lites';
         this.lites.config = {
@@ -319,7 +307,6 @@ export class OptionsService {
             { name: '10 - Lites', shortName: '10-Lite' },
             { name: '11 - Lites', shortName: '11-Lite' },
             { name: '12 - Lites', shortName: '12-Lite' } ];
-
 // V-Groove/bead
         this.vGroove.id = 'vGroove';
         this.vGroove.config = {
@@ -342,7 +329,6 @@ export class OptionsService {
             { name: 'Bead @ 1-1/2"', shortName: 'Bead-1-1/2"' },
             { name: 'V-Groove @ 2"', shortName: 'VGroove-2"' },
             { name: 'Bead @ 2"', shortName: 'Bead-2"' }, ];
-
 // Miter Profile
         this.miterProfile.id = 'miterProfile';
         this.miterProfile.config = {

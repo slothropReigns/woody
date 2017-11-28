@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { OptionsService } from '../order-tabs/group-options/options.service';
-import { SelectionItem } from '../order-tabs/group-options/optionsInterfaces/selectionItem';
+import { OptionsService } from '../order-tabs/primary-options/options.service';
+import { SelectionItem } from '../order-tabs/primary-options/optionsInterfaces/selectionItem';
 import { Subscription } from 'rxjs/Subscription';
 import { Wood } from '../../shared/wood.model';
-import { Selection } from '../order-tabs/group-options/optionsInterfaces/options';
+import { Selection } from '../order-tabs/primary-options/optionsInterfaces/options';
 
 
 // this component to have compact review of previously chosen options

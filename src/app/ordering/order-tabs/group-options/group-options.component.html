@@ -1,7 +1,7 @@
 <div class="form-group">
     <div class="row">
         <div class="col-md-6"><br>
-            <button (click)="confirmChoices()" class="btn btn-primary">CONFIRM CHOICES</button>
+            <button (click)="confirmPrimaryChoices()" class="btn btn-primary">CONFIRM CHOICES</button>
             <div class="card">
                 <div class="card-header">
                     Materials Selection
@@ -44,7 +44,7 @@
                 <div class="card-block">
                     <select title="{{ listOpt.signPostTitle }}" name="{{ listOpt.signPostTitle }}"
                             id="{{ listOpt.id }}" class="form-control"
-                            [(ngModel)]="optionsChosen[i]">
+                            [(ngModel)]="primaryOptionsChosen[i]">
                         <option *ngFor="let select of listOpt.opt; let i = index"
                                 [ngValue]="select">
                             {{ select.name }}

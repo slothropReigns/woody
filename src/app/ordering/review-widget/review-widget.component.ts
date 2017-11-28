@@ -3,6 +3,7 @@ import { OptionsService } from '../order-tabs/group-options/options.service';
 import { SelectionItem } from '../order-tabs/group-options/optionsInterfaces/selectionItem';
 import { Subscription } from 'rxjs/Subscription';
 import { Wood } from '../../shared/wood.model';
+import { Selection } from '../order-tabs/group-options/optionsInterfaces/options';
 
 
 // this component to have compact review of previously chosen options
@@ -13,34 +14,25 @@ import { Wood } from '../../shared/wood.model';
     styles: []
 })
 export class ReviewWidgetComponent implements OnInit {
-    orderOptions: SelectionItem[] = [];
+    primaryOptions: SelectionItem[] = [];
     woodChoice: Wood;
     optionsSub: Subscription;
     woodSub: Subscription;
-    optionNames: string[];
+    optionsNames: Selection[];
 
     constructor(private optionsService: OptionsService) {
-        this.optionNames = [ // BAD -
-            'Panel Profile',
-            'Outside Edge',
-            'Inside Profile',
-            'Door Style',
-            'Arch Layout',
-            'Multi-Panel',
-            'Frame Type',
-            'Frame Width',
-            'Grain Direction',
-            'Raised or Flat',
-            'Boring Offset',
-            'Boring Tab'
-        ];
+
     }
 
     ngOnInit() {
-        this.orderOptions = this.optionsService.getChosenOptions();
-        this.optionsSub = this.optionsService.orderOptions.subscribe(
+        this.getPrimaryOptions();
+    }
+
+    getPrimaryOptions() {
+        this.primaryOptions = this.optionsService.getChosenPrimaryOptions();
+        this.optionsSub = this.optionsService.primaryOrderOptions.subscribe(
             (options: SelectionItem[]) => {
-                this.orderOptions = options;
+                this.primaryOptions = options;
             }
         );
         this.woodSub = this.optionsService.orderWoodType.subscribe(
@@ -48,7 +40,8 @@ export class ReviewWidgetComponent implements OnInit {
                 this.woodChoice = wood;
             }
         );
+        this.optionsNames = this.optionsService.primaryOptionsList;
         console.log('REVIEW WORKING');
-        console.log(this.orderOptions);
+        console.log(this.primaryOptions);
     }
 }

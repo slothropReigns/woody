@@ -18,7 +18,7 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
 
 // Assembled options list array
     optionsList: Selection[] = [];
-    optionsChosen: SelectionItem[] = [];
+    primaryOptionsChosen: SelectionItem[] = [];
 
 
     constructor(private optionsService: OptionsService,
@@ -47,8 +47,8 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
         );
     }
 
-    confirmChoices() {
-        this.optionsService.confirmChosenOptions(this.optionsChosen, this.woodSelected);
+    confirmPrimaryChoices() {
+        this.optionsService.confirmPrimaryOptions(this.primaryOptionsChosen, this.woodSelected);
     }
 }
 

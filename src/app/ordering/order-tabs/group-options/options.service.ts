@@ -25,25 +25,26 @@ export class OptionsService {
     miterProfile: Selection = new Selection();
 
 // ARRAYS OF OPTIONS FED TO DISPLAY COMPONENTS
-    primaryOptionsList = []; // options list for entire order ......*************FIGURE THIS OUT****************
+    primaryOptionsList: Selection[] = []; // options list for entire order ......*************FIGURE THIS OUT****************
+    primaryOptionsChosen = [];
 
     scOptionsList: Selection[] = []; // options if stick and cope chosen
+    scOptionsChosen = [];
     miterOptionsList: Selection[] = []; // options if miter chosen
-
+    miterOptionsChosen = [];
     scDoorOptionsList: Selection[] = []; // options list for SC doors
+    scDoorOptionsChosen = [];
     miterDoorOptionsList: Selection[] = []; // options list for Miter doors
-
+    miterDoorOptionsChosen = [];
     scDfOptionsList: Selection[] = []; // options list for five-piece df stick and cope
+    scDfOptionsChosen = [];
     miterDfOptionsList: Selection[] = []; // options list for five-piece df miter
-
+    miterDfOptionsChosen = [];
     slabOptionsList: Selection[] = []; // options list for slabs only
-
-
-// received list of CHOSEN options
-    optionsChosen: SelectionItem[];
+    slabOptionsChosen = [];
     woodChosen: Wood;
 
-    orderOptions = new Subject<SelectionItem[]>();
+    primaryOrderOptions = new Subject<SelectionItem[]>();
     orderWoodType = new Subject<Wood>();
 
 // Get active tab from order accordion component
@@ -409,14 +410,14 @@ export class OptionsService {
             this.vGroove);
     }
 
-    confirmChosenOptions(opts: SelectionItem[], wood: Wood) {
-        this.optionsChosen = opts;
+    confirmPrimaryOptions(opts: SelectionItem[], wood: Wood) {
+        this.primaryOptionsChosen = opts;
         this.woodChosen = wood;
-        this.orderOptions.next(opts);
+        this.primaryOrderOptions.next(opts);
         this.orderWoodType.next(wood);
     }
 
-    getChosenOptions() {
-        return this.optionsChosen;
+    getChosenPrimaryOptions() {
+        return this.primaryOptionsChosen;
     }
 }

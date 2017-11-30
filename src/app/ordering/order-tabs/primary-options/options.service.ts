@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Selection } from './optionsInterfaces/options';
-import { SelectionItem } from './optionsInterfaces/selectionItem';
-import { Subject } from 'rxjs/Subject';
-import { Wood } from '../../../shared/wood.model';
+import {Injectable} from '@angular/core';
+import {Selection} from './optionsInterfaces/options';
+import {SelectionItem} from './optionsInterfaces/selectionItem';
+import {Subject} from 'rxjs/Subject';
+import {Wood} from '../../../shared/wood.model';
 
 @Injectable()
 export class OptionsService {
@@ -91,7 +91,6 @@ export class OptionsService {
             { name: 'Eyebrow', shortName: 'E-Brow' },
             { name: 'Shouldered Eyebrow', shortName: 'SH.E-Brow' },
             { name: 'Cathedral', shortName: 'CATH' }, ];
-// TODO ask kevin about when miter can get outside edge... depending on miter profile i guess
 // OUTSIDE EDGE
         this.outsideEdge.id = 'outsideEdge';
         this.outsideEdge.config = {
@@ -135,9 +134,7 @@ export class OptionsService {
         this.insideProfile.opt = [
             { name: 'Bead', shortName: 'Bead' },
             { name: 'Shaker', shortName: 'Shaker' },
-            { name: 'Ogee', shortName: 'Ogee' }
-        ];
-// TODO fill in warranty info
+          {name: 'Ogee', shortName: 'Ogee'}];
 // MULTI PANEL
         this.multiPanel.id = 'multiPanel';
         this.multiPanel.config = {
@@ -181,7 +178,6 @@ export class OptionsService {
             { name: 'Top (Standard)', shortName: 'STD', price: '999' },
             { name: 'Left / Right (As Pair)', shortName: 'PAIR', price: '999' },
             { name: 'Top and Bottom', shortName: 'DBL', price: '999' } ];
-// TODO figure out if this is necessary or how to do this elsewhere
 // FRAME TYPE ( cs/ mit / mit 3 )
         this.frameType.id = 'frameType';
         this.frameType.config = {

@@ -1,10 +1,70 @@
-<div>
-    <ul>
-        <li>
-            Wood Choice - {{ woodChoice?.name }}
-        </li>
-        <li *ngFor="let option of primaryOptions; let i = index">
-            {{ optionsNames[i].signPostTitle }} - {{ option.shortName }}
-        </li>
-    </ul>
+<!--<div>
+  <ul>
+    <li>
+      Wood Choice - {{ woodChoice?.name }}
+    </li>
+    <li *ngFor="let option of primaryOptions; let i = index">
+      {{ optionsNames[i].signPostTitle }} - {{ option.shortName }}
+    </li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Group Options Review
+      </div>
+      <div class="card-block">
+        <h5>
+          Wood Choice - {{ woodChoice?.name }}
+        </h5>
+        <div *ngFor="let option of primaryOptions; let i = index">
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li *ngIf="i % 2 === 0">
+                  {{ optionsNames[i].signPostTitle }} - {{ option.shortName }}
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li *ngIf="i % 2 === 1">
+                  {{ optionsNames[i].signPostTitle }} - {{ option.shortName }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+</div>-->
+<div class="col-md-5">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="text-primary">
+
+      Order Options Review
+      </span>
+    </div>
+    <div class="card-block">
+      <table class="table table-compact table-noborder" style="margin-top: 0">
+        <tbody>
+        <tr>
+          <td class="left"><b>Wood Choice</b></td>
+          <td class="left">{{ woodChoice?.name }}</td>
+        </tr>
+        <tr *ngFor="let opt of primaryOptions; let i = index; let e = even">
+          <td class="left"><b>{{ optionsNames[i].signPostTitle }}</b></td>
+          <td class="left">{{ opt.shortName }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 </div>

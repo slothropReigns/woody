@@ -4,6 +4,7 @@ import {SelChoice} from '../optionsInterfaces/selectionItem';
 import {Subscription} from 'rxjs/Subscription';
 import {Wood} from '../../shared/wood.model';
 import {SelOption} from '../optionsInterfaces/options';
+import {OptsChosenService} from '../opts-chosen.service';
 
 
 // this component to have compact review of previously chosen options
@@ -20,7 +21,8 @@ export class ReviewWidgetComponent implements OnInit {
     woodSub: Subscription;
   optionsNames: SelOption[];
 
-    constructor(private optionsService: OptionsService) {
+  constructor(private optionsService: OptionsService,
+              private optsChosenService: OptsChosenService) {
 
     }
 
@@ -29,13 +31,13 @@ export class ReviewWidgetComponent implements OnInit {
     }
 
     getPrimaryOptions() {
-        this.primaryOptions = this.optionsService.getChosenPrimaryOptions();
-        this.optionsSub = this.optionsService.primaryOrderOptions.subscribe(
+      this.primaryOptions = this.optsChosenService.getChosenPrimaryOptions();
+      this.optionsSub = this.optsChosenService.primaryOrderOptions.subscribe(
           (options: SelChoice[]) => {
                 this.primaryOptions = options;
             }
         );
-        this.woodSub = this.optionsService.orderWoodType.subscribe(
+      this.woodSub = this.optsChosenService.orderWoodType.subscribe(
             (wood: Wood) => {
                 this.woodChoice = wood;
             }

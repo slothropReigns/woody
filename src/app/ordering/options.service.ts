@@ -35,7 +35,6 @@ export class OptionsService {
   slabOptionsList: SelOption[] = []; // options list for slabs only
 
 
-
 // Get active tab from order accordion component
   tabStatus = new Subject<string>(); // do i need this?
 

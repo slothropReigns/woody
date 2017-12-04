@@ -4,6 +4,7 @@ import {SelOption} from '../../optionsInterfaces/options';
 import {Wood} from '../../../shared/wood.model';
 import {WoodsService} from '../../../shared/woods.service';
 import {SelChoice} from '../../optionsInterfaces/selectionItem';
+import {OptsChosenService} from '../../opts-chosen.service';
 
 @Component({
     selector: 'app-group-options',
@@ -22,6 +23,7 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
 
 
     constructor(private optionsService: OptionsService,
+                private optsChosenService: OptsChosenService,
                 private woodsService: WoodsService) {
 
         this.optionsList = this.optionsService.primaryOptionsList;
@@ -48,7 +50,7 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
     }
 
     confirmPrimaryChoices() {
-        this.optionsService.confirmPrimaryOptions(this.primaryOptionsChosen, this.woodSelected);
+      this.optsChosenService.confirmPrimaryOptions(this.primaryOptionsChosen, this.woodSelected);
     }
 }
 

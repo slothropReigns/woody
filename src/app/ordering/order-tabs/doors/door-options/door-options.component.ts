@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OptionsService} from '../../../options.service';
 import {SelOption} from '../../../optionsInterfaces/options';
 import {SelChoice} from '../../../optionsInterfaces/selectionItem';
+import {OptsChosenService} from '../../../opts-chosen.service';
 
 @Component({
   selector: 'app-door-options',
@@ -14,8 +15,9 @@ export class DoorOptionsComponent implements OnInit {
   doorOptionsChosen: SelChoice[] = [];
   doorType: string;
 
-  constructor(private optionsService: OptionsService) {
-    this.optionsService.optionsChosenPing.subscribe(
+  constructor(private optionsService: OptionsService,
+              private optsChosenService: OptsChosenService) {
+    this.optsChosenService.optionsChosenPing.subscribe(
       ping => {
         this.getDoorType();
         console.log(ping);

@@ -1,51 +1,51 @@
 import {Injectable} from '@angular/core';
-import {Selection} from './optionsInterfaces/options';
-import {SelectionItem} from './optionsInterfaces/selectionItem';
+import {SelOption} from './optionsInterfaces/options';
+import {SelChoice} from './optionsInterfaces/selectionItem';
 import {Subject} from 'rxjs/Subject';
-import {Wood} from '../../../shared/wood.model';
+import {Wood} from '../shared/wood.model';
 
 @Injectable()
 export class OptionsService {
   optionsChosenPing = new Subject<boolean>();
 
 // INDIVIDUAL OPTIONS
-  panelProfile: Selection = new Selection();
-  outsideEdge: Selection = new Selection();
-  insideProfile: Selection = new Selection();
-  doorStyle: Selection = new Selection();
-  archLayout: Selection = new Selection();
-  multiPanel: Selection = new Selection();
-  frameType: Selection = new Selection();
-  defFrameWidth: Selection = new Selection();
-  grainDirection: Selection = new Selection();
-  boringOffset: Selection = new Selection();
-  boringTab: Selection = new Selection();
-  boringYesNo: Selection = new Selection();
-  lites: Selection = new Selection();
-  vGroove: Selection = new Selection();
-  miterProfile: Selection = new Selection();
+  panelProfile: SelOption = new SelOption();
+  outsideEdge: SelOption = new SelOption();
+  insideProfile: SelOption = new SelOption();
+  doorStyle: SelOption = new SelOption();
+  archLayout: SelOption = new SelOption();
+  multiPanel: SelOption = new SelOption();
+  frameType: SelOption = new SelOption();
+  defFrameWidth: SelOption = new SelOption();
+  grainDirection: SelOption = new SelOption();
+  boringOffset: SelOption = new SelOption();
+  boringTab: SelOption = new SelOption();
+  boringYesNo: SelOption = new SelOption();
+  lites: SelOption = new SelOption();
+  vGroove: SelOption = new SelOption();
+  miterProfile: SelOption = new SelOption();
 
 // ARRAYS OF OPTIONS FED TO DISPLAY COMPONENTS
-  primaryOptionsList: Selection[] = []; // options list for entire order ......*************FIGURE THIS OUT****************
+  primaryOptionsList: SelOption[] = []; // options list for entire order ......*************FIGURE THIS OUT****************
   primaryOptionsChosen = [];
 
-  scOptionsList: Selection[] = []; // options if stick and cope chosen
+  scOptionsList: SelOption[] = []; // options if stick and cope chosen
   scOptionsChosen = [];
-  miterOptionsList: Selection[] = []; // options if miter chosen
+  miterOptionsList: SelOption[] = []; // options if miter chosen
   miterOptionsChosen = [];
-  scDoorOptionsList: Selection[] = []; // options list for SC doors
+  scDoorOptionsList: SelOption[] = []; // options list for SC doors
   scDoorOptionsChosen = [];
-  miterDoorOptionsList: Selection[] = []; // options list for Miter doors
+  miterDoorOptionsList: SelOption[] = []; // options list for Miter doors
   miterDoorOptionsChosen = [];
-  scDfOptionsList: Selection[] = []; // options list for five-piece df stick and cope
+  scDfOptionsList: SelOption[] = []; // options list for five-piece df stick and cope
   scDfOptionsChosen = [];
-  miterDfOptionsList: Selection[] = []; // options list for five-piece df miter
+  miterDfOptionsList: SelOption[] = []; // options list for five-piece df miter
   miterDfOptionsChosen = [];
-  slabOptionsList: Selection[] = []; // options list for slabs only
+  slabOptionsList: SelOption[] = []; // options list for slabs only
   slabOptionsChosen = [];
   woodChosen: Wood;
 
-  primaryOrderOptions = new Subject<SelectionItem[]>();
+  primaryOrderOptions = new Subject<SelChoice[]>();
   orderWoodType = new Subject<Wood>();
 
 // Get active tab from order accordion component
@@ -394,7 +394,7 @@ export class OptionsService {
       this.vGroove);
   }
 
-  confirmPrimaryOptions(opts: SelectionItem[], wood: Wood) {
+  confirmPrimaryOptions(opts: SelChoice[], wood: Wood) {
     this.primaryOptionsChosen = opts;
     this.woodChosen = wood;
     this.primaryOrderOptions.next(opts);
@@ -404,5 +404,13 @@ export class OptionsService {
 
   getChosenPrimaryOptions() {
     return this.primaryOptionsChosen;
+  }
+
+  getDoorOptions() {
+    if (this.primaryOptionsChosen[0].shortName === 'S&C') { // S&C, MTR, MTR3 are possibilities
+      return this.scOptionsList;
+    } else {
+      return this.miterOptionsList;
+    }
   }
 }

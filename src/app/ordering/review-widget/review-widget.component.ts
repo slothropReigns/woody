@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { OptionsService } from '../order-tabs/primary-options/options.service';
-import { SelectionItem } from '../order-tabs/primary-options/optionsInterfaces/selectionItem';
-import { Subscription } from 'rxjs/Subscription';
-import { Wood } from '../../shared/wood.model';
-import { Selection } from '../order-tabs/primary-options/optionsInterfaces/options';
+import {Component, OnInit} from '@angular/core';
+import {OptionsService} from '../options.service';
+import {SelChoice} from '../optionsInterfaces/selectionItem';
+import {Subscription} from 'rxjs/Subscription';
+import {Wood} from '../../shared/wood.model';
+import {SelOption} from '../optionsInterfaces/options';
 
 
 // this component to have compact review of previously chosen options
@@ -14,11 +14,11 @@ import { Selection } from '../order-tabs/primary-options/optionsInterfaces/optio
     styles: []
 })
 export class ReviewWidgetComponent implements OnInit {
-    primaryOptions: SelectionItem[] = [];
+  primaryOptions: SelChoice[] = [];
     woodChoice: Wood;
     optionsSub: Subscription;
     woodSub: Subscription;
-    optionsNames: Selection[];
+  optionsNames: SelOption[];
 
     constructor(private optionsService: OptionsService) {
 
@@ -31,7 +31,7 @@ export class ReviewWidgetComponent implements OnInit {
     getPrimaryOptions() {
         this.primaryOptions = this.optionsService.getChosenPrimaryOptions();
         this.optionsSub = this.optionsService.primaryOrderOptions.subscribe(
-            (options: SelectionItem[]) => {
+          (options: SelChoice[]) => {
                 this.primaryOptions = options;
             }
         );

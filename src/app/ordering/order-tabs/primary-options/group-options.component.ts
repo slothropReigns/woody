@@ -1,9 +1,9 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
-import { OptionsService } from './options.service';
-import { Selection } from './optionsInterfaces/options';
-import { Wood } from '../../../shared/wood.model';
-import { WoodsService } from '../../../shared/woods.service';
-import { SelectionItem } from './optionsInterfaces/selectionItem';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {OptionsService} from '../../options.service';
+import {SelOption} from '../../optionsInterfaces/options';
+import {Wood} from '../../../shared/wood.model';
+import {WoodsService} from '../../../shared/woods.service';
+import {SelChoice} from '../../optionsInterfaces/selectionItem';
 
 @Component({
     selector: 'app-group-options',
@@ -17,8 +17,8 @@ export class GroupOptionsComponent implements OnInit, DoCheck {
     woodSelected: Wood;
 
 // Assembled options list array
-    optionsList: Selection[] = [];
-    primaryOptionsChosen: SelectionItem[] = [];
+  optionsList: SelOption[] = [];
+  primaryOptionsChosen: SelChoice[] = [];
 
 
     constructor(private optionsService: OptionsService,

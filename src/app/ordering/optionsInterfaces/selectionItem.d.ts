@@ -1,7 +1,7 @@
-import { Price } from './price';
-import { OptionConfiguration } from './option-configuration';
+import {Price} from './price';
+import {OptionConfiguration} from './option-configuration';
 
-export interface SelectionItem { // representing individual menu / dropdown choices
+export interface SelChoice { // representing individual menu / dropdown choices
     name: string;
     shortName: string; // shortname used in part numbers / summaries / cut-sheets etc.
     imagePath?: string;

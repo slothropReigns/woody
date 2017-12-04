@@ -1,5 +1,5 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
-import { OptionsService } from './primary-options/options.service';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {OptionsService} from '../options.service';
 
 @Component({
     selector: 'app-order-accordion',

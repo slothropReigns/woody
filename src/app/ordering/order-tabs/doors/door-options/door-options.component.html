@@ -25,3 +25,52 @@
     </div>
   </div>
 </div>
+<form #doorForm="ngForm" (ngSubmit)="onAddDoor()">
+  <section class="form-block">
+    <label for="">Add Doors</label>
+    <div class="form-group">
+      <label for="doorQty">QTY</label>
+      <label for="doorQty"
+             aria-haspopup="true"
+             class="tooltip tooltip-validation tooltip-md"
+             [class.invalid]="doorQty.invalid && (doorQty.dirty || doorQty.touched)">
+        <input type="text" id="doorQty" placeholder="QTY"
+               required
+               name="doorQty"
+               [(ngModel)]="model.doorQty"
+               #doorQty="ngModel">
+        <span class="tooltip-content">
+          QTY is Required
+        </span>
+      </label>
+      <label for="doorWidth">Width</label>
+      <label for="doorWidth"
+             aria-haspopup="true"
+             class="tooltip tooltip-validation tooltip-md"
+             [class.invalid]="doorWidth.invalid && (doorWidth.dirty || doorWidth.touched)">
+        <input type="text" id="doorWidth" placeholder="Width"
+               required
+               name="doorWidth"
+               [(ngModel)]="model.doorWidth"
+               #doorWidth="ngModel">
+        <span class="tooltip-content">
+          Width is Required
+        </span>
+      </label>
+      <label for="doorHeight">Width</label>
+      <label for="doorHeight"
+             aria-haspopup="true"
+             class="tooltip tooltip-validation tooltip-md"
+             [class.invalid]="doorHeight.invalid && (doorHeight.dirty || doorHeight.touched)">
+        <input type="text" id="doorHeight" placeholder="Height"
+               required
+               name="doorHeight"
+               [(ngModel)]="model.doorHeight"
+               #doorHeight="ngModel">
+        <span class="tooltip-content">
+          Height is Required
+        </span>
+      </label>
+    </div>
+  </section>
+</form>

@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 import {DoorOptionsComponent} from './order-tabs/doors/door-options/door-options.component';
 import {DrwFrontOptionsComponent} from './order-tabs/drw-fronts/drw-front-options/drw-front-options.component';
 import {SlabOptionsComponent} from './order-tabs/slabs/slab-options/slab-options.component';
+import {OptsChosenService} from './opts-chosen.service';
 
 @NgModule({
     imports: [
@@ -40,7 +41,7 @@ import {SlabOptionsComponent} from './order-tabs/slabs/slab-options/slab-options
         DrwFrontOptionsComponent,
         SlabOptionsComponent
     ],
-    providers: [ OptionsService ]
+  providers: [OptionsService, OptsChosenService]
 })
 export class OrderModule {
 }

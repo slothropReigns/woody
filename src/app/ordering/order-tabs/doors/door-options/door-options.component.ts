@@ -3,6 +3,7 @@ import {OptionsService} from '../../../options.service';
 import {SelOption} from '../../../optionsInterfaces/options';
 import {SelChoice} from '../../../optionsInterfaces/selectionItem';
 import {OptsChosenService} from '../../../opts-chosen.service';
+import {Door} from '../../../optionsInterfaces/door.model';
 
 @Component({
   selector: 'app-door-options',
@@ -14,6 +15,7 @@ export class DoorOptionsComponent implements OnInit {
   doorOptionsList: SelOption[] = [];
   doorOptionsChosen: SelChoice[] = [];
   doorType: string;
+  model = new Door();
 
   constructor(private optionsService: OptionsService,
               private optsChosenService: OptsChosenService) {
@@ -33,4 +35,7 @@ export class DoorOptionsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddDoor() {
+
+  }
 }

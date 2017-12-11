@@ -25,52 +25,69 @@
     </div>
   </div>
 </div>
-<form #doorForm="ngForm" (ngSubmit)="onAddDoor()">
+<form #doorForm="ngForm" (ngSubmit)="onAddDoor()" class="compact">
   <section class="form-block">
     <label for="">Add Doors</label>
-    <div class="form-group">
-      <label for="doorQty">QTY</label>
-      <label for="doorQty"
-             aria-haspopup="true"
-             class="tooltip tooltip-validation tooltip-md"
-             [class.invalid]="doorQty.invalid && (doorQty.dirty || doorQty.touched)">
-        <input type="text" id="doorQty" placeholder="QTY"
-               required
-               name="doorQty"
-               [(ngModel)]="model.doorQty"
-               #doorQty="ngModel">
-        <span class="tooltip-content">
+    <div class="form-group row">
+      <div class="col-md">
+        <label for="doorQty">QTY</label>
+        <label for="doorQty"
+               aria-haspopup="true"
+               class="tooltip tooltip-validation tooltip-md"
+               [class.invalid]="doorQty.invalid && (doorQty.dirty || doorQty.touched)">
+          <input type="text" id="doorQty" placeholder="QTY"
+                 required
+                 name="doorQty"
+                 [(ngModel)]="model.doorQty"
+                 #doorQty="ngModel">
+          <span class="tooltip-content">
           QTY is Required
         </span>
-      </label>
-      <label for="doorWidth">Width</label>
-      <label for="doorWidth"
-             aria-haspopup="true"
-             class="tooltip tooltip-validation tooltip-md"
-             [class.invalid]="doorWidth.invalid && (doorWidth.dirty || doorWidth.touched)">
-        <input type="text" id="doorWidth" placeholder="Width"
-               required
-               name="doorWidth"
-               [(ngModel)]="model.doorWidth"
-               #doorWidth="ngModel">
-        <span class="tooltip-content">
+        </label>
+        <label for="doorWidth">Width</label>
+        <label for="doorWidth"
+               aria-haspopup="true"
+               class="tooltip tooltip-validation tooltip-md"
+               [class.invalid]="doorWidth.invalid && (doorWidth.dirty || doorWidth.touched)">
+          <input type="text" id="doorWidth" placeholder="Width"
+                 required
+                 name="doorWidth"
+                 [(ngModel)]="model.doorWidth"
+                 #doorWidth="ngModel">
+          <span class="tooltip-content">
           Width is Required
         </span>
-      </label>
-      <label for="doorHeight">Width</label>
-      <label for="doorHeight"
-             aria-haspopup="true"
-             class="tooltip tooltip-validation tooltip-md"
-             [class.invalid]="doorHeight.invalid && (doorHeight.dirty || doorHeight.touched)">
-        <input type="text" id="doorHeight" placeholder="Height"
-               required
-               name="doorHeight"
-               [(ngModel)]="model.doorHeight"
-               #doorHeight="ngModel">
-        <span class="tooltip-content">
+        </label>
+        <label for="doorHeight">Width</label>
+        <label for="doorHeight"
+               aria-haspopup="true"
+               class="tooltip tooltip-validation tooltip-md"
+               [class.invalid]="doorHeight.invalid && (doorHeight.dirty || doorHeight.touched)">
+          <input type="text" id="doorHeight" placeholder="Height"
+                 required
+                 name="doorHeight"
+                 [(ngModel)]="model.doorHeight"
+                 #doorHeight="ngModel">
+          <span class="tooltip-content">
           Height is Required
         </span>
-      </label>
+        </label>
+      </div>
     </div>
+    <div class="form-group row">
+      <div class="col-lg-12">
+        <label for="doorBore">Bore</label>
+        <clr-checkbox
+          name="doorBore"
+          id="doorBore"
+          [(ngModel)]="model.doorBore">
+          Bore this Door
+        </clr-checkbox>
+      </div>
+    </div>
+    <button (click)="onAddDoor()">ADD</button>
+    <button (click)="onUpdateDoor()">UPDATE</button>
+    <button (click)="onClearDoor()">CLEAR</button>
+    <button (click)="onClearAll()">CLEAR ALL</button>
   </section>
 </form>

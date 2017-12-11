@@ -38,4 +38,16 @@ export class DoorOptionsComponent implements OnInit {
   onAddDoor() {
 
   }
+
+  onUpdateDoor() {
+
+  }
+
+  onClearDoor() {
+
+  }
+
+  onClearAll() { // needs warning popup
+
+  }
 }

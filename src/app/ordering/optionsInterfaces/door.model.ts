@@ -7,4 +7,10 @@ export class Door {
   doorQty: number;
   doorWidth: number;
   doorHeight: number;
+  doorBore: boolean;
+  leftStileWidth: number;
+  rightStileWidth: number;
+  topRailWidth: number;
+  bottomRailWidth: number;
+  label: string;
 }

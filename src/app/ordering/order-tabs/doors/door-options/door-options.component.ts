@@ -30,24 +30,31 @@ export class DoorOptionsComponent implements OnInit {
   /*fetches s&c or miter options depending on what was selected initially*/
   getDoorType() {
     this.doorOptionsList = this.optionsService.getDoorOptions();
+    this.primaryOptionsChosen = this.optsChosenService.getChosenPrimaryOptions();
   }
 
   ngOnInit() {
   }
 
   onAddDoor() {
-
+    console.log(this.primaryOptionsChosen);
+    console.log(this.doorOptionsChosen);
+    console.log('pressed once');
   }
 
   onUpdateDoor() {
-
+    console.log('pressed once');
   }
 
   onClearDoor() {
-
+    console.log('pressed once');
   }
 
   onClearAll() { // needs warning popup
+    console.log('pressed once');
+  }
 
+  onConfirmDoors() {
+    return;
   }
 }

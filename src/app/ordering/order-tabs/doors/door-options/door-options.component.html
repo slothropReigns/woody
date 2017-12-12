@@ -13,7 +13,7 @@
       <div class="card-block">
         <select title="{{ listOpt.signPostTitle }}" name="{{ listOpt.signPostTitle }}"
                 id="{{ listOpt.id }}" class="form-control"
-                [(ngModel)]="primaryOptionsChosen[i]">
+                [(ngModel)]="doorOptionsChosen[i]">
           <option *ngFor="let select of listOpt.opt; let i = index"
                   [ngValue]="select">
             {{ select.name }}
@@ -25,7 +25,7 @@
     </div>
   </div>
 </div>
-<form #doorForm="ngForm" (ngSubmit)="onAddDoor()" class="compact">
+<form #doorForm="ngForm" (ngSubmit)="onConfirmDoors()" class="compact">
   <section class="form-block">
     <label for="">Add Doors</label>
     <div class="form-group row">

@@ -60,7 +60,7 @@ export class OptionsService {
       {name: 'Pillow RP', shortName: 'PILLOW-RP'},
       {name: 'Ogee with Bead RP', shortName: 'OGEEwBEAD-RP', note: 'Deep-Cut Profile Available'},
       {name: 'Custom-R (Radius) RP', shortName: 'Custom-R-RP'},
-      {name: 'Custom-S (Square) RP', shortName: 'Custom-S-RP'},];
+      {name: 'Custom-S (Square) RP', shortName: 'Custom-S-RP'}];
 // DOOR STYLE
     this.doorStyle.id = 'doorStyle';
     this.doorStyle.config = {
@@ -77,7 +77,7 @@ export class OptionsService {
     this.doorStyle.opt = [{name: 'Square (Standard)', shortName: 'STD'},
       {name: 'Eyebrow', shortName: 'E-Brow'},
       {name: 'Shouldered Eyebrow', shortName: 'SH.E-Brow'},
-      {name: 'Cathedral', shortName: 'CATH'},];
+      {name: 'Cathedral', shortName: 'CATH'}];
 // OUTSIDE EDGE
     this.outsideEdge.id = 'outsideEdge';
     this.outsideEdge.config = {
@@ -105,7 +105,7 @@ export class OptionsService {
       {name: 'Cab-D', shortName: 'Cab-D', note: 'This edge not sanded!'},
       {name: 'K', shortName: 'K'},
       {name: 'SB', shortName: 'SB'},
-      {name: 'RS', shortName: 'RS'},];
+      {name: 'RS', shortName: 'RS'}];
 // INSIDE PROFILE
     this.insideProfile.id = 'insideProfile';
     this.insideProfile.config = {
@@ -311,7 +311,7 @@ export class OptionsService {
       {name: 'V-Groove @ 1-1/2"', shortName: 'VGroove-1-1/2"'},
       {name: 'Bead @ 1-1/2"', shortName: 'Bead-1-1/2"'},
       {name: 'V-Groove @ 2"', shortName: 'VGroove-2"'},
-      {name: 'Bead @ 2"', shortName: 'Bead-2"'},];
+      {name: 'Bead @ 2"', shortName: 'Bead-2"'}];
 // Miter Profile
     this.miterProfile.id = 'miterProfile';
     this.miterProfile.config = {
@@ -353,16 +353,20 @@ export class OptionsService {
       this.insideProfile,
       this.doorStyle,
       this.archLayout,
-      this.defFrameWidth);
-    this.miterOptionsList.push( // SECONDARY MITER
-      this.miterProfile);
-    this.scDoorOptionsList.push( // SC DOORS
       this.grainDirection,
       this.boringYesNo,
       this.vGroove,
-      this.doorStyle,
-      this.archLayout,
-      this.multiPanel);
+      this.multiPanel,
+      this.defFrameWidth);
+    this.miterOptionsList.push( // SECONDARY MITER
+      this.miterProfile);
+    // this.scDoorOptionsList.push( // SC DOORS
+    // this.grainDirection,
+    // this.boringYesNo,
+    // this.vGroove,
+    // this.doorStyle,
+    // this.archLayout,
+    // this.multiPanel);
     this.miterDoorOptionsList.push( // MITER DOORS
       this.grainDirection,
       this.boringYesNo,

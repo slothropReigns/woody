@@ -8,7 +8,6 @@ export class OptsChosenService {
   optionsChosenPing = new Subject<boolean>();
 
   primaryOptionsChosen = [];
-
   scOptionsChosen = [];
   miterOptionsChosen = [];
   scDoorOptionsChosen = [];
@@ -34,5 +33,13 @@ export class OptsChosenService {
 
   getChosenPrimaryOptions() {
     return this.primaryOptionsChosen;
+  }
+
+  confirmSecondaryOptions() {
+    return;
+  }
+
+  getChosenSecondaryOptions() {
+    return;
   }
 }
